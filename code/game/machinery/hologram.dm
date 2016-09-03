@@ -49,6 +49,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
 		return
+	world << "USER WANTS OUT."
 	if(alert(user,"Would you like to request an AI's presence?",,"Yes","No") == "Yes")
 		if(last_request + 200 < world.time) //don't spam the AI with requests you jerk!
 			last_request = world.time
@@ -74,22 +75,26 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		clear_holo(user)
 	return
 
-/obj/machinery/hologram/holopad/proc/activate_holo(mob/living/silicon/ai/user)
-	if(!(stat & NOPOWER) && user.eyeobj.loc == src.loc)//If the projector has power and client eye is on it
-		if (user.holo)
-			user << "<span class='danger'>ERROR:</span> Image feed in progress."
-			return
-		create_holo(user)//Create one.
-		src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
-	else
+/obj/machinery/hologram/holopad/proc/activate_holo(mob/living/user)
+	if(!operable())//If the projector has power and client eye is on it
 		user << "<span class='danger'>ERROR:</span> Unable to project hologram."
+		return
+	if(user.eyeobj && user.eyeobj.loc == src.loc)
+		return
+	if(istype(user,/mob/living/silicon/ai))
+		var/mob/living/silicon/ai/AI = user
+		if (AI.holo)
+			AI << "<span class='danger'>ERROR:</span> Image feed in progress."
+			return
+	create_holo(user)//Create one.
+	src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
 	return
 
 /*This is the proc for special two-way communication between AI and holopad/people talking near holopad.
 For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/hear_talk(mob/living/M, text, verb, datum/language/speaking)
 	if(M)
-		for(var/mob/living/silicon/ai/master in masters)
+		for(var/mob/living/master in masters)
 			if(!master.say_understands(M, speaking))//The AI will be able to understand most mobs talking through the holopad.
 				if(speaking)
 					text = speaking.scramble(text)
@@ -105,38 +110,41 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			master.show_message(rendered, 2)
 
 /obj/machinery/hologram/holopad/see_emote(mob/living/M, text)
-	if(M)
-		for(var/mob/living/silicon/ai/master in masters)
-			//var/name_used = M.GetVoice()
-			var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
-			//The lack of name_used is needed, because message already contains a name.  This is needed for simple mobs to emote properly.
-			master.show_message(rendered, 2)
+	for(var/mob/living/master in masters)
+		var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
+		master.show_message(rendered, 2)
 	return
 
 /obj/machinery/hologram/holopad/show_message(msg, type, alt, alt_type)
-	for(var/mob/living/silicon/ai/master in masters)
+	for(var/mob/living/master in masters)
 		var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[msg]</span></span></i>"
 		master.show_message(rendered, type)
 	return
 
-/obj/machinery/hologram/holopad/proc/create_holo(mob/living/silicon/ai/A, turf/T = loc)
+/obj/machinery/hologram/holopad/proc/create_holo(mob/living/A, turf/T = loc)
 	var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
-	hologram.overlays += A.holo_icon // Add it as an overlay to keep coloration!
+	if(istype(A,/mob/living/silicon/ai))
+		var/mob/living/silicon/ai/AI = A
+		hologram.overlays += AI.holo_icon // Add it as an overlay to keep coloration!
+		AI.holo = src
+	else
+		hologram.overlays += make_hologram(A)
 	hologram.mouse_opacity = 0//So you can't click on it.
 	hologram.layer = FLY_LAYER//Above all the other objects/mobs. Or the vast majority of them.
 	hologram.anchored = 1//So space wind cannot drag it.
-	hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
+	hologram.name = "[A.get_visible_name()] (Hologram)"//If someone decides to right click.
 	hologram.set_light(2)	//hologram lighting
 	hologram.color = color //painted holopad gives coloured holograms
 	masters[A] = hologram
 	set_light(2)			//pad lighting
 	icon_state = "holopad1"
-	A.holo = src
 	return 1
 
-/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/silicon/ai/user)
-	if(user.holo == src)
-		user.holo = null
+/obj/machinery/hologram/holopad/proc/clear_holo(mob/living/user)
+	if(istype(user,/mob/living/silicon/ai))
+		var/mob/living/silicon/ai/AI = user
+		if(AI.holo == src)
+			AI.holo = null
 	qdel(masters[user])//Get rid of user's hologram
 	masters -= user //Discard AI from the list of those who use holopad
 	if (!masters.len)//If no users left
@@ -158,7 +166,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		use_power(power_per_hologram)
 	return 1
 
-/obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
+/obj/machinery/hologram/holopad/proc/move_hologram(mob/living/user)
 	if(masters[user])
 		step_to(masters[user], user.eyeobj) // So it turns.
 		var/obj/effect/overlay/H = masters[user]
@@ -179,7 +187,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 				clear_holo(user)
 	return 1
 
-/obj/machinery/hologram/holopad/proc/set_dir_hologram(new_dir, mob/living/silicon/ai/user)
+/obj/machinery/hologram/holopad/proc/set_dir_hologram(new_dir, mob/living/user)
 	if(masters[user])
 		var/obj/effect/overlay/hologram = masters[user]
 		hologram.dir = new_dir
@@ -215,36 +223,88 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	..()
 
 /*
-Holographic project of everything else.
-
-/mob/verb/hologram_test()
-	set name = "Hologram Debug New"
-	set category = "CURRENT DEBUG"
-
-	var/obj/effect/overlay/hologram = new(loc)//Spawn a blank effect at the location.
-	var/icon/flat_icon = icon(getFlatIcon(src,0))//Need to make sure it's a new icon so the old one is not reused.
-	flat_icon.ColorTone(rgb(125,180,225))//Let's make it bluish.
-	flat_icon.ChangeOpacity(0.5)//Make it half transparent.
-	var/input = input("Select what icon state to use in effect.",,"")
-	if(input)
-		var/icon/alpha_mask = new('icons/effects/effects.dmi', "[input]")
-		flat_icon.AddAlphaMask(alpha_mask)//Finally, let's mix in a distortion effect.
-		hologram.icon = flat_icon
-
-		world << "Your icon should appear now."
-	return
-*/
-
-/*
  * Other Stuff: Is this even used?
  */
 /obj/machinery/hologram/projector
 	name = "hologram projector"
 	desc = "It makes a hologram appear...with magnets or something..."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "hologram0"
+	icon_state = "broadcaster"
+	var/obj/machinery/hologram/holopad/pad
 
+/obj/machinery/hologram/projector/attack_hand(var/mob/living/carbon/human/user)
+	if(!operable())
+		return
+	if(alert(user,"Would you like to place a holocall?",,"Yes","No") == "Yes")
+		world << "Holocall go."
+		var/list/pads = list()
+		for(var/obj/machinery/hologram/holopad/H in machines)
+			world << "Checking [H] at [H.x] [H.y]."
+			world << "It's z is [H.z], station levels are [english_list(using_map.station_levels)]"
+			world << "It's [H.operable() ? "" : "in"]operable"
+			if((H.z in using_map.station_levels) && H.operable())
+				var/area/A = get_area(H)
+				world << "Adding [H] in area [A.name]"
+				pads["[A.name]"] = H
+		world << "Viable pads are now [english_list(pads)]"
+		var/padname = input(user, "Which holopad do you want to call?", "Holocall") as anything in pads
+		if(padname)
+			pad = pads[padname]
+			world << "Connecting to [pad] at [pad.x] [pad.y]."
+			pad.activate_holo(user)
+			user.set_machine(src)
+			user.reset_view(pad)
 
+/obj/machinery/hologram/projector/hear_talk(mob/living/M, text, verb, datum/language/speaking)
+	for(var/mob/living/master in view(world.view, get_turf(pad)))
+		var/rendered
+		if(!master.say_understands(M, speaking))//The AI will be able to understand most mobs talking through the holopad.
+			if(speaking)
+				rendered = speaking.scramble(text)
+			else
+				rendered = stars(text)
+		var/name_used = "Unknown"
+		if(M)
+			name_used = M.GetVoice()
+		//This communication is imperfect because the holopad "filters" voices and is only designed to connect to the master only.
+		if(speaking)
+			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
+		else
+			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+		M.show_message(rendered)
+
+/obj/machinery/hologram/projector/see_emote(mob/living/M, text)
+	var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
+	pad.visible_message(rendered)
+
+/proc/make_hologram(atom/appear)
+	var/image/I = image(appear.icon, appear.icon_state)
+	I.overlays = appear.overlays
+	I.underlays = appear.underlays
+	I.color = list(
+			0.30, 0.30, 0.30, 0.0, // Greyscale and reduce the alpha of the icon
+			0.59, 0.59, 0.59, 0.0,
+			0.11, 0.11, 0.11, 0.0,
+			0.00, 0.00, 0.00, 0.5,
+			0.00, 0.00, 0.00, 0.0
+		)
+	var/image/scan = image('icons/effects/effects.dmi', "scanline")
+	scan.color = list(
+			0.30,0.30,0.30,0.00, // Greyscale the scanline icon too
+			0.59,0.59,0.59,0.00,
+			0.11,0.11,0.11,0.00,
+			0.00,0.00,0.00,1.00,
+			0.00,0.00,0.00,0.00
+		)
+	scan.blend_mode = BLEND_MULTIPLY
+
+	// Combine the mob image and the scanlines into a single KEEP_TOGETHER'd image
+	var/image/I2 = image(null)
+	I2.underlays += I
+	I2.overlays += scan
+	I2.appearance_flags = KEEP_TOGETHER
+	I2.color = rgb(125, 180, 225) // make it blue!
+	return I2
 #undef RANGE_BASED
 #undef AREA_BASED
 #undef HOLOPAD_PASSIVE_POWER_USAGE

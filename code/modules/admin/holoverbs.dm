@@ -13,33 +13,7 @@
 	var/mob/living/silicon/ai/AI = input("Which AI do you want to apply [appear] to as a hologram?") as null|anything in AIs
 	if(!AI) return
 
-	var/image/I = image(appear.icon, appear.icon_state)
-	I.overlays = appear.overlays
-	I.underlays = appear.underlays
-	I.color = list(
-			0.30, 0.30, 0.30, 0.0, // Greyscale and reduce the alpha of the icon
-			0.59, 0.59, 0.59, 0.0,
-			0.11, 0.11, 0.11, 0.0,
-			0.00, 0.00, 0.00, 0.5,
-			0.00, 0.00, 0.00, 0.0
-		)
-	var/image/scan = image('icons/effects/effects.dmi', "scanline")
-	scan.color = list(
-			0.30,0.30,0.30,0.00, // Greyscale the scanline icon too
-			0.59,0.59,0.59,0.00,
-			0.11,0.11,0.11,0.00,
-			0.00,0.00,0.00,1.00,
-			0.00,0.00,0.00,0.00
-		)
-	scan.blend_mode = BLEND_MULTIPLY
-
-	// Combine the mob image and the scanlines into a single KEEP_TOGETHER'd image
-	var/image/I2 = image(null)
-	I2.underlays += I
-	I2.overlays += scan
-	I2.appearance_flags = KEEP_TOGETHER
-	I2.color = rgb(125, 180, 225) // make it blue!
-	AI.holo_icon = I2
+	AI.holo_icon = make_hologram(appear)
 
 	AI << "Your hologram icon has been set to [appear]."
 	log_and_message_admins("set [key_name(AI)]'s hologram icon to [key_name(appear)]")
