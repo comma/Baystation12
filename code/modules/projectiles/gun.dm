@@ -64,7 +64,7 @@
 	var/list/dispersion = list(0)
 	var/requires_two_hands
 	var/wielded_item_state
-
+	var/recoil = 0
 	var/next_fire_time = 0
 
 	var/sel_mode = 1 //index of the currently selected mode
