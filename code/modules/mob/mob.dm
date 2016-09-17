@@ -1092,3 +1092,6 @@ mob/proc/yank_out_object()
 			usr << "The game is not currently looking for antags."
 	else
 		usr << "You must be observing or in the lobby to join the antag pool."
+
+/mob/proc/get_visible_name()
+	return name
