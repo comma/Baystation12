@@ -434,6 +434,13 @@
 /datum/gas_mixture/proc/share_space(datum/gas_mixture/unsim_air)
 	return share_ratio(unsim_air, unsim_air.group_multiplier, max(1, max(group_multiplier + 3, 1) + unsim_air.group_multiplier), one_way = 1)
 
+/datum/gas_mixture/proc/get_mass()
+	for(var/g in gas)
+		. += gas[g] * gas_data.molar_mass[g]
+
+/datum/gas_mixture/proc/get_moles_in_volume(var/V)
+	if(temperature)
+		return (V * return_pressure())/(R_IDEAL_GAS_EQUATION * temperature)
 
 //Equalizes a list of gas mixtures.  Used for pipe networks.
 /proc/equalize_gases(datum/gas_mixture/list/gases)

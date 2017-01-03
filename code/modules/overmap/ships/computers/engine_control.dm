@@ -31,6 +31,7 @@
 
 /obj/machinery/computer/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)
+		to_chat(user, "<span class='warning'>Unable to connect to ship control systems.</span>")
 		return
 
 	var/data[0]
@@ -88,10 +89,8 @@
 /obj/machinery/computer/engines/proc/burn()
 	if(engines.len == 0)
 		return 0
-	var/res = 0
 	for(var/datum/ship_engine/E in engines)
-		res |= E.burn()
-	return res
+		. |= E.burn()
 
 /obj/machinery/computer/engines/proc/get_total_thrust()
 	for(var/datum/ship_engine/E in engines)
