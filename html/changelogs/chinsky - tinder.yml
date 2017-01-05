@@ -1,0 +1,11 @@
+author: Chinsky
+
+delete-after: True
+
+changes: 
+  - experiment: "Added a matchmaking system (competitive MP TBD)."
+  - rscadd: "Characters that opt in are matched up with others on roundstart / when they join to form IC relationships like friends/enemies/rivals/grudges."
+  - rscadd: "In character setup you can select what types of relationships your character is eligible for."
+  - rscadd: "Also you can add some information that people matched with you (on that type of relationship) will see. Things like what a friend would know, suggestions on what kinds of stuff your character could have done to earn a grudge, etc."
+  - rscadd: "You can view relationship info with View Relationship Info verb. Do it. They are not quite final until you do - when you view them for the first time, you get a chance to terminate them (if RNG match makes no sense for your char) or edit info tidbit specifically for your match."
+  - rscadd: "You also get knowledge of some of other peoples relationships (and vice versa), in same window. Info on those is also available at employment records console."
