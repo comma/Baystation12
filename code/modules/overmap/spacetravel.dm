@@ -45,10 +45,21 @@ proc/get_deepspace(x,y)
 		world.maxz++
 		return new /obj/effect/overmap/sector/temporary(x, y, world.maxz)
 
+/atom/movable/proc/lost_in_space()
+	return TRUE
+
+/mob/lost_in_space()
+	return isnull(client)
+
 proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
 	var/obj/effect/overmap/M = map_sectors["[T.z]"]
 	if (!M)
 		return
+
+	if(A.lost_in_space())
+		qdel(A)
+		return
+
 	var/nx = 1
 	var/ny = 1
 	var/nz = 1
@@ -74,7 +85,7 @@ proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
 	var/turf/map = locate(M.x,M.y,using_map.overmap_z)
 	var/obj/effect/overmap/TM
 	for(var/obj/effect/overmap/O in map)
-		if(TM != M && prob(5))
+		if(TM != M && TM.in_space && prob(5))
 			TM = O
 	if(!TM)
 		TM = get_deepspace(M.x,M.y)
@@ -83,6 +94,10 @@ proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
 	var/turf/dest = locate(nx,ny,nz)
 	if(dest)
 		A.forceMove(dest)
+		if(ismob(A))
+			var/mob/D = A
+			if(D.pulling)
+				D.pulling.forceMove(dest)
 
 	if(istype(M, /obj/effect/overmap/sector/temporary))
 		var/obj/effect/overmap/sector/temporary/source = M
