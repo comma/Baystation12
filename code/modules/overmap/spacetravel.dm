@@ -52,6 +52,9 @@ proc/get_deepspace(x,y)
 	return isnull(client)
 
 proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
+	if (!T || !A)
+		return
+
 	var/obj/effect/overmap/M = map_sectors["[T.z]"]
 	if (!M)
 		return
@@ -85,8 +88,9 @@ proc/overmap_spacetravel(var/turf/space/T, var/atom/movable/A)
 	var/turf/map = locate(M.x,M.y,using_map.overmap_z)
 	var/obj/effect/overmap/TM
 	for(var/obj/effect/overmap/O in map)
-		if(TM != M && TM.in_space && prob(5))
+		if(O != M && O.in_space && prob(5))
 			TM = O
+			break
 	if(!TM)
 		TM = get_deepspace(M.x,M.y)
 	nz = pick(TM.map_z)

@@ -683,11 +683,11 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-		if(halloss >= species.total_health)
-			to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
-			src.visible_message("<B>[src]</B> [species.halloss_message].")
+		if(getHalLoss() >= species.total_health)
+			if(!stat)
+				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
+				src.visible_message("<B>[src]</B> [species.halloss_message].")
 			Paralyse(10)
-			setHalLoss(species.total_health-1)
 
 		if(paralysis || sleeping)
 			blinded = 1
@@ -813,14 +813,13 @@
 						var/no_damage = 1
 						var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
 						if(!can_feel_pain())
-							trauma_val = max(traumatic_shock,halloss)/species.total_health
-						var/limb_trauma_val = trauma_val*0.5
+							trauma_val = max(traumatic_shock,getHalLoss())/species.total_health
 						// Collect and apply the images all at once to avoid appearance churn.
 						var/list/health_images = list()
 						for(var/obj/item/organ/external/E in organs)
 							if(no_damage && (E.brute_dam || E.burn_dam))
 								no_damage = 0
-							health_images += E.get_damage_hud_image(limb_trauma_val)
+							health_images += E.get_damage_hud_image()
 
 						// Apply a fire overlay if we're burning.
 						if(on_fire)
@@ -966,7 +965,10 @@
 	if(stat) return 0
 
 	if(shock_stage == 10)
-		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 40)
+		// Please be very careful when calling custom_pain() from within code that relies on pain/trauma values. There's the
+		// possibility of a feedback loop from custom_pain() being called with a positive power, incrementing pain on a limb,
+		// which triggers this proc, which calls custom_pain(), etc. Make sure you call it with 0 power in these cases!
+		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 0)
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30) visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
