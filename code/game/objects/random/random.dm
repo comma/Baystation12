@@ -466,7 +466,7 @@ obj/random/closet/item_to_spawn()
 					/obj/item/toy/water_balloon,\
 					/obj/item/toy/crossbow,\
 					/obj/item/toy/blink,\
-					/obj/item/toy/waterflower,\
+					/obj/item/weapon/reagent_containers/spray/waterflower,\
 					/obj/item/toy/prize/ripley,\
 					/obj/item/toy/prize/fireripley,\
 					/obj/item/toy/prize/deathripley,\
@@ -843,7 +843,7 @@ obj/random/obstruction //Large objects to block things off in maintenance
 					prob(4);/obj/item/clothing/under/hazard,\
 					prob(4);/obj/item/clothing/under/sterile,\
 					prob(1);/obj/item/clothing/under/pt,\
-					prob(2);/obj/item/clothing/under/pants/camo,\
+					prob(2);/obj/item/clothing/under/casual_pants/camo,\
 					prob(2);/obj/item/clothing/under/frontier,\
 					prob(2);/obj/item/clothing/under/harness,\
 					prob(2);/obj/item/clothing/under/rank/medical/paramedic,\

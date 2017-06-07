@@ -512,6 +512,7 @@ var/global/list/light_type_cache = list()
 		if(status == LIGHT_OK || status == LIGHT_BURNED)
 			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		if(on)
+			s.set_up(3, 1, src)
 			s.start()
 	status = LIGHT_BROKEN
 	update()
@@ -601,18 +602,18 @@ obj/machinery/light/proc/burn_out()
 	item_state = "c_tube"
 	matter = list("glass" = 100)
 
-	brightness_range = 8	// luminosity when on, also used in power calculation
+	brightness_range = 6	// luminosity when on, also used in power calculation
 	brightness_power = 3
 	brightness_color = "#FFFFFF"
 	lighting_modes = list(
-		"emergency_lighting" = list(l_range = 5, l_power = 1, l_color = "#da0205"),
+		"emergency_lighting" = list(l_range = 4, l_power = 1, l_color = "#da0205"),
 		)
 
 /obj/item/weapon/light/tube/large
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
-	brightness_range = 12
-	brightness_power = 4
+	brightness_range = 8
+	brightness_power = 3
 
 /obj/item/weapon/light/bulb
 	name = "light bulb"
@@ -623,11 +624,11 @@ obj/machinery/light/proc/burn_out()
 	broken_chance = 5
 	matter = list("glass" = 100)
 
-	brightness_range = 4
+	brightness_range = 3
 	brightness_power = 2
 	brightness_color = "#a0a080"
 	lighting_modes = list(
-		"emergency_lighting" = list(l_range = 4, l_power = 1, l_color = "#da0205"),
+		"emergency_lighting" = list(l_range = 3, l_power = 1, l_color = "#da0205"),
 		)
 
 /obj/item/weapon/light/bulb/red
@@ -645,7 +646,7 @@ obj/machinery/light/proc/burn_out()
 	base_state = "fbulb"
 	item_state = "egg4"
 	matter = list("glass" = 100)
-	brightness_range = 5
+	brightness_range = 4
 	brightness_power = 2
 
 // update the icon state and description of the light

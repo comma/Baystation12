@@ -8,10 +8,11 @@
 	force = 10
 	flags =  CONDUCT
 	slot_flags = SLOT_BACK
-	requires_two_hands = 4
+	one_hand_penalty = 4
 	charge_cost = 30
 	max_shots = 10
 	projectile_type = /obj/item/projectile/ion
+	wielded_item_state = "ionrifle-wielded"
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
@@ -25,7 +26,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	force = 5
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	requires_two_hands = 0
+	one_hand_penalty = 0
 	charge_cost = 20
 	max_shots = 8
 	projectile_type = /obj/item/projectile/ion/small

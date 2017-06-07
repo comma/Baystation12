@@ -36,7 +36,7 @@
 	icon_state = "tcomsatcham"
 	requires_power = 0
 	luminosity = 1
-	lighting_use_dynamic = 0
+	dynamic_lighting = 0
 
 /obj/effect/shuttle_landmark/ingoing1
 	name = "Navpoint #1"

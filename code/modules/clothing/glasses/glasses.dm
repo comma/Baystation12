@@ -112,6 +112,17 @@
 	icon_state = "eyepatch"
 	item_state = "eyepatch"
 	body_parts_covered = 0
+	var/flipped = 0 // Indicates left or right eye; 0 = on the right
+
+/obj/item/clothing/glasses/eyepatch/attack_self(mob/user) //able to flip to each eye
+	src.flipped = !src.flipped
+	if(src.flipped)
+		icon_state = "[icon_state]_r"
+		to_chat(user, "You change the Eyepatch to cover the left eye.")
+	else
+		src.icon_state = initial(icon_state)
+		to_chat(user, "You change the Eyepatch to cover the right eye..")
+	update_clothing_icon()	// mob-overlays updates
 
 /obj/item/clothing/glasses/monocle
 	name = "monocle"
@@ -359,3 +370,33 @@
 	desc = "A set of implantable lenses designed to augment your vision."
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"
+
+
+/*---Tajaran-specific Eyewear---*/
+
+/obj/item/clothing/glasses/tajblind
+	name = "embroidered veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes."
+	icon_state = "tajblind"
+	item_state = "tajblind"
+	prescription = 5
+
+/obj/item/clothing/glasses/hud/health/tajblind
+	name = "lightweight veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes. This one has an installed medical HUD."
+	icon_state = "tajblind_med"
+	item_state = "tajblind_med"
+
+/obj/item/clothing/glasses/sunglasses/sechud/tajblind
+	name = "sleek veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes. This one has an in-built security HUD."
+	icon_state = "tajblind_sec"
+	item_state = "tajblind_sec"
+	prescription = 5
+
+/obj/item/clothing/glasses/meson/prescription/tajblind
+	name = "industrial veil"
+	desc = "An Ahdominian made veil that allows the user to see while obscuring their eyes. This one has installed mesons."
+	icon_state = "tajblind_meson"
+	item_state = "tajblind_meson"
+	off_state = "tajblind_meson"

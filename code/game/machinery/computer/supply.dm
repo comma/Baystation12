@@ -92,10 +92,10 @@
 			else
 				switch(shuttle.active_docking_controller.get_docking_status())
 					if ("docked")
-						shuttlestatus = "Docked at station"
-					if ("undocked") shuttlestatus = "Undocked from station"
-					if ("docking") shuttlestatus = "Docking with station"
-					if ("undocking") shuttlestatus = "Undocking from station"
+						shuttlestatus = "Docked"
+					if ("undocked") shuttlestatus = "Undocked"
+					if ("docking") shuttlestatus = "Docking"
+					if ("undocking") shuttlestatus = "Undocking"
 		else
 			shuttlestatus = "Docked at remote location"
 

@@ -6,7 +6,7 @@
 
 /datum/uplink_item/item/services/fake_ion_storm
 	name = "Ion Storm Announcement"
-	desc = "Interferes with the station's ion sensors."
+	desc = "Interferes with ion sensors."
 	item_cost = 8
 	path = /obj/item/device/uplink_service/fake_ion_storm
 
@@ -18,7 +18,7 @@
 
 /datum/uplink_item/item/services/fake_rad_storm
 	name = "Radiation Storm Announcement"
-	desc = "Interferes with the station's radiation sensors."
+	desc = "Interferes with radiation sensors."
 	item_cost = 24
 	path = /obj/item/device/uplink_service/fake_rad_storm
 
@@ -132,9 +132,9 @@
 	ssjm = new ssjm()
 
 /obj/item/device/uplink_service/jamming/Destroy()
-	. = ..()
 	qdel(ssjm)
 	ssjm = null
+	. = ..()
 
 /obj/item/device/uplink_service/jamming/enable(var/mob/user = usr)
 	ssjm.enable()

@@ -1,5 +1,5 @@
 /datum/reagent/blood
-	data = new/list("donor" = null, "species" = "Human", "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "trace_chem" = null, "virus2" = list(), "antibodies" = list())
+	data = new/list("donor" = null, "species" = SPECIES_HUMAN, "blood_DNA" = null, "blood_type" = null, "blood_colour" = "#A10808", "trace_chem" = null, "virus2" = list(), "antibodies" = list())
 	name = "Blood"
 	id = "blood"
 	reagent_state = LIQUID
@@ -152,10 +152,10 @@
 
 	else if(volume >= 10)
 		var/turf/simulated/S = T
-		if(!S.wet > 5)
+		if(!S.wet)
 			S.wet_floor(1)
 		else
-			S.wet = round(S.wet * 0.75)
+			S.wet = 1
 
 
 /datum/reagent/water/touch_obj(var/obj/O)

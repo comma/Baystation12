@@ -16,7 +16,7 @@
 		power_equip = 0
 		power_environ = 0
 
-	if(lighting_use_dynamic)
+	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
@@ -38,6 +38,9 @@
 	for (var/obj/machinery/camera/C in src)
 		cameras += C
 	return cameras
+
+/area/proc/is_shuttle_locked()
+	return 0
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)

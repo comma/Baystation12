@@ -19,9 +19,57 @@
 	path = /obj/item/clothing/accessory/wcoat
 	allowed_roles = FORMAL_ROLES
 
+/datum/gear/accessory/zhongshan
+	display_name = "zhongshan jacket"
+	path = /obj/item/clothing/accessory/toggleable/zhongshan
+	allowed_roles = FORMAL_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/dashiki
+	display_name = "dashiki selection"
+	path = /obj/item/clothing/accessory/dashiki
+	allowed_roles = NON_MILITARY_ROLES
+
+/datum/gear/accessory/dashiki/New()
+	..()
+	gear_tweaks += new/datum/gear_tweak/path(/obj/item/clothing/accessory/dashiki)
+
+/datum/gear/accessory/thawb
+	display_name = "thawb"
+	path = /obj/item/clothing/accessory/thawb
+	allowed_roles = NON_MILITARY_ROLES
+
+/datum/gear/accessory/sherwani
+	display_name = "sherwani"
+	path = /obj/item/clothing/accessory/sherwani
+	allowed_roles = FORMAL_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/qipao
+	display_name = "qipao blouse"
+	path = /obj/item/clothing/accessory/qipao
+	allowed_roles = NON_MILITARY_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/tangzhuang
+	display_name = "tangzhuang jacket"
+	path = /obj/item/clothing/accessory/tangzhuang
+	allowed_roles = NON_MILITARY_ROLES
+	flags = GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/necklace
 	display_name = "necklace"
 	path = /obj/item/clothing/accessory/necklace
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/bowtie
+	display_name = "bowtie, horrible"
+	path = /obj/item/clothing/accessory/bowtie/ugly
+	allowed_roles = NON_MILITARY_ROLES
+
+/datum/gear/accessory/bowtie/color
+	display_name = "bowtie, colored"
+	path = /obj/item/clothing/accessory/bowtie/color
 	flags = GEAR_HAS_COLOR_SELECTION
 
 //have to break up armbands to restrict access
@@ -29,6 +77,11 @@
 	display_name = "security armband"
 	path = /obj/item/clothing/accessory/armband
 	allowed_roles = SECURITY_ROLES
+
+/datum/gear/accessory/armband_mp
+	display_name = "military police armband"
+	path = /obj/item/clothing/accessory/armband/mp
+	allowed_roles = list("Master at Arms", "Brig Officer", "Chief of Security", "Forensic Technician")
 
 /datum/gear/accessory/armband_cargo
 	display_name = "cargo armband"
@@ -60,11 +113,6 @@
 	path = /obj/item/clothing/accessory/armband/hydro
 	allowed_roles = list("Research Director", "Scientist", "Research Assistant", "Passenger")
 
-/datum/gear/accessory/armband_science
-	display_name = "science armband"
-	path = /obj/item/clothing/accessory/armband/science
-	allowed_roles = RESEARCH_ROLES
-
 /datum/gear/accessory/armband_nt
 	display_name = "NanoTrasen armband"
 	path = /obj/item/clothing/accessory/armband/whitered
@@ -94,6 +142,15 @@
 /datum/gear/accessory/holster/New()
 	..()
 	gear_tweaks += new/datum/gear_tweak/path(/obj/item/clothing/accessory/holster)
+
+/datum/gear/accessory/ubac
+	display_name = "ubac selection"
+	path = /obj/item/clothing/accessory/ubac
+	allowed_roles = MILITARY_ROLES
+
+/datum/gear/accessory/ubac/New()
+	..()
+	gear_tweaks += new/datum/gear_tweak/path(/obj/item/clothing/accessory/ubac)
 
 /datum/gear/accessory/tie
 	display_name = "tie selection"
