@@ -145,7 +145,7 @@
 			if(!M.buckled)
 				M.Weaken(3)
 
-	translate_turfs(turf_translation, current_location.base_area)
+	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf)
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air

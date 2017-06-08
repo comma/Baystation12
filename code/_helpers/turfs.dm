@@ -116,7 +116,7 @@
 	return turf_map
 
 
-/proc/translate_turfs(var/list/translation, var/area/base_area = null)
+/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf)
 	for(var/turf/source in translation)
 		if(!source.is_solid_structure())
 			continue
@@ -132,7 +132,7 @@
 
 	//change the old turfs
 	for(var/turf/source in translation)
-		source.ChangeTurf(get_base_turf_by_area(source), 1, 1)
+		source.ChangeTurf(base_turf ? base_turf : get_base_turf_by_area(source), 1, 1)
 
 //Transports a turf from a source turf to a target turf, moving all of the turf's contents and making the target a copy of the source.
 /proc/transport_turf_contents(turf/source, turf/target)
