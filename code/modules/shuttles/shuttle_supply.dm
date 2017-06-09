@@ -51,11 +51,6 @@
 		if (!at_station())	//at centcom
 			supply_controller.sell()
 
-/datum/shuttle/autodock/ferry/supply/check_collision()
-	if(!..())
-		log_error("Supply shuttle \"[name]\" was obstructed, moving anyways.")
-	return TRUE //obstructing the supply shuttle is not permitted
-
 // returns 1 if the supply shuttle should be prevented from moving because it contains forbidden atoms
 /datum/shuttle/autodock/ferry/supply/proc/forbidden_atoms_check()
 	if (!at_station())
