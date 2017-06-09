@@ -1,4 +1,4 @@
-
+/*
 //Torch Large Pods
 
 /datum/shuttle/autodock/ferry/escape_pod/escape_pod_six
@@ -146,18 +146,27 @@
 	dock_target_station = "escape_pod_17_berth"
 	dock_target_offsite = "escape_pod_17_recovery"
 	transit_direction = SOUTH
-
+*/
 
 //Petrov
 
-/datum/shuttle/ferry/petrov
+/datum/shuttle/autodock/ferry/petrov
 	name = "Petrov"
 	warmup_time = 10
-	area_offsite = /area/shuttle/petrov/away
-	area_station = /area/shuttle/petrov/docked
-	docking_controller_tag = "petrov_shuttle"
-	dock_target_station = "petrov_shuttle_dock_airlock"
+	shuttle_area = /area/shuttle/petrov/docked
+	waypoint_station = "nav_petrov_start"
+	waypoint_offsite = "nav_petrov_out"
 
+/obj/effect/shuttle_landmark/petrov/start
+	name = "First Deck"
+	landmark_tag = "nav_petrov_start"
+	docking_target = "petrov_shuttle"
+	docking_controller = "petrov_shuttle_dock_airlock"
+
+/obj/effect/shuttle_landmark/petrov/out
+	name = "Space near the ship"
+	landmark_tag = "nav_petrov_out"
+/*
 //Ninja Shuttle.
 /datum/shuttle/multi_shuttle/ninja
 	name = "Ninja"
@@ -179,48 +188,81 @@
 	arrival_message = "Attention, anomalous sensor reading detected entering vessel proximity."
 	departure_message = "Attention, anomalous sensor reading detected leaving vessel proximity."
 
+*/
+/obj/effect/shuttle_landmark/ninja/start
+	name = "Clan Dojo"
+	landmark_tag = "nav_ninja_start"
 
 //Merchant
 
 /datum/shuttle/autodock/ferry/merchant
 	name = "Merchant"
 	warmup_time = 10
-	docking_controller_tag = "merchant_ship_dock"
-	dock_target_station = "merchant_station_dock"
-	dock_target_offsite = "merchant_shuttle_station_dock"
-	area_station = /area/shuttle/merchant/home
-	area_offsite = /area/shuttle/merchant/away
+	shuttle_area = /area/shuttle/merchant/home
+	waypoint_station = "nav_merchant_start"
+	waypoint_offsite = "nav_merchant_out"
+
+/obj/effect/shuttle_landmark/merchant/start
+	name = "Merchant Base"
+	landmark_tag = "nav_merchant_start"
+	docking_target = "merchant_ship_dock"
+	docking_controller = "merchant_station_dock"
+
+/obj/effect/shuttle_landmark/merchant/out
+	name = "Docking Bay"
+	landmark_tag = "nav_merchant_out"
+	docking_target = "merchant_ship_dock"
+	docking_controller = "merchant_shuttle_station_dock"
 
 //Admin
 
 /datum/shuttle/autodock/ferry/administration
 	name = "Administration"
-	location = 1
 	warmup_time = 10	//want some warmup time so people can cancel.
-	area_offsite = /area/shuttle/administration/centcom
-	area_station = /area/shuttle/administration/station
-	docking_controller_tag = "admin_shuttle"
-	dock_target_station = "admin_shuttle_dock_airlock"
-	dock_target_offsite = "admin_shuttle_bay"
+	shuttle_area = /area/shuttle/administration/centcom
+	waypoint_station = "nav_admin_start"
+	waypoint_offsite = "nav_admin_out"
+
+/obj/effect/shuttle_landmark/admin/start
+	name = "Centcom"
+	landmark_tag = "nav_admin_start"
+	docking_controller = "admin_shuttle"
+	base_area = /area/centcom
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/admin/out
+	name = "Docking Bay"
+	landmark_tag = "nav_admin_out"
+	docking_target = "admin_shuttle"
+	docking_controller = "admin_shuttle_dock_airlock"
 
 //Transport
 
-/datum/shuttle/ferry/centcom
+/datum/shuttle/autodock/ferry/centcom
 	name = "Centcom"
 	location = 1
 	warmup_time = 10
-	area_offsite = /area/shuttle/transport1/centcom
-	area_station = /area/shuttle/transport1/station
-	docking_controller_tag = "centcom_shuttle"
-	dock_target_station = "centcom_shuttle_dock_airlock"
-	dock_target_offsite = "centcom_shuttle_bay"
+	shuttle_area = /area/shuttle/transport1/centcom
+	waypoint_offsite = "nav_ferry_start"
+	waypoint_station = "nav_ferry_out"
+
+/obj/effect/shuttle_landmark/ferry/start
+	name = "Centcom"
+	landmark_tag = "nav_ferry_start"
+	docking_target = "centcom_shuttle"
+	docking_controller = "centcom_shuttle_bay"
+
+/obj/effect/shuttle_landmark/ferry/out
+	name = "Docking Bay"
+	landmark_tag = "nav_ferry_out"
+	docking_target = "centcom_shuttle"
+	docking_controller = "centcom_shuttle_dock_airlock"
 
 //Merc
 
 /datum/shuttle/multi_shuttle/mercenary
 	name = "Mercenary"
-	warmup_time = 0
-	origin = /area/syndicate_station/start
+	warmup_time = 0/*
 	interim = /area/syndicate_station/transit
 	start_location = "Mercenary Base"
 	destinations = list(
@@ -234,18 +276,24 @@
 		"Mining Site" = /area/syndicate_station/mining,
 		"Docking Port" = /area/syndicate_station/arrivals_dock,
 		)
-	docking_controller_tag = "merc_shuttle"
 	destination_dock_targets = list(
 		"Forward Operating Base" = "merc_base",
 		"Docking Port" = "nuke_shuttle_dock_airlock",
 		)
-	announcer = "SEV Torch Sensor Array"
+	docking_controller_tag = "merc_shuttle"
+	announcer = "SEV Torch Sensor Array"*/
+	shuttle_area = /area/syndicate_station/start
+	current_location = "nav_merc_start"
 
 /datum/shuttle/multi_shuttle/mercenary/New()
-	arrival_message = "Attention, vessel detected entering vessel proximity."
-	departure_message = "Attention, vessel detected leaving vessel proximity."
+	//arrival_message = "Attention, vessel detected entering vessel proximity."
+	//departure_message = "Attention, vessel detected leaving vessel proximity."
 	..()
 
+/obj/effect/shuttle_landmark/merc/start
+	name = "Forward Operating Base"
+	landmark_tag = "nav_merc_start"
+/*
 //Skipjack
 
 /datum/shuttle/multi_shuttle/skipjack
@@ -275,7 +323,11 @@
 	arrival_message = "Attention, vessel detected entering vessel proximity."
 	departure_message = "Attention, vessel detected leaving vessel proximity."
 	..()
-
+*/
+/obj/effect/shuttle_landmark/skipjack/start
+	name = "Raider Outpost"
+	landmark_tag = "nav_skipjack_start"
+/*
 //NT Rescue Shuttle
 
 /datum/shuttle/multi_shuttle/rescue
@@ -306,20 +358,31 @@
 	arrival_message = "Attention, vessel detected entering vessel proximity."
 	departure_message = "Attention, vessel detected leaving vessel proximity."
 	..()
+*/
+/obj/effect/shuttle_landmark/ert/start
+	name = "Response Team Base"
+	landmark_tag = "nav_ert_start"
 
 //SCGMC Assault Pod
 
-/datum/shuttle/autodock/ferry/multidock/specops/ert
+/datum/shuttle/autodock/ferry/specops/ert
 	name = "Special Operations"
-	location = 0
 	warmup_time = 10
-	area_offsite = /area/shuttle/specops/station
-	area_station = /area/shuttle/specops/centcom
-	docking_controller_tag = "specops_shuttle_port"
-	docking_controller_tag_station = "specops_shuttle_port"
-	docking_controller_tag_offsite = "specops_shuttle_fore"
-	dock_target_station = "specops_centcom_dock"
-	dock_target_offsite = "specops_dock_airlock"
+	shuttle_area = /area/shuttle/specops/centcom
+	waypoint_station = "nav_specops_start"
+	waypoint_offsite = "nav_specops_out"
+S
+/obj/effect/shuttle_landmark/specops/start
+	name = "Centcom"
+	landmark_tag = "nav_specops_start"
+	docking_target = "specops_shuttle_port"
+	docking_controller = "specops_centcom_dock"
+
+/obj/effect/shuttle_landmark/specops/out
+	name = "Docking Bay"
+	landmark_tag = "nav_specops_out"
+	docking_target = "specops_shuttle_fore"
+	docking_controller = "specops_dock_airlock"
 
 //Cargo drone
 
@@ -327,7 +390,48 @@
 	name = "Supply Drone"
 	location = 1
 	warmup_time = 10
-	area_offsite = /area/supply/dock
-	area_station = /area/supply/station
-	docking_controller_tag = "" // lands, doesn't dock
-*/
+	shuttle_area = /area/supply/dock
+	waypoint_offsite = "nav_cargo_start"
+	waypoint_station = "nav_cargo_station"
+
+/obj/effect/shuttle_landmark/supply/centcom
+	name = "Centcom"
+	landmark_tag = "nav_cargo_start"
+
+/obj/effect/shuttle_landmark/supply/station
+	name = "Hangar"
+	landmark_tag = "nav_cargo_station"
+	base_area = /area/quartermaster/hangar
+	base_turf = /turf/simulated/floor/plating
+
+/datum/shuttle/autodock/overmap/calypso
+	name = "Calypso"
+	shuttle_area = /area/calypso_hangar/start
+	current_location = "nav_hangar_calypso"
+
+/obj/effect/shuttle_landmark/torch/hangar/calypso
+	name = "Calypso Hangar"
+	landmark_tag = "nav_hangar_calypso"
+	base_area = /area/quartermaster/hangar
+	base_turf = /turf/simulated/floor/plating
+
+/datum/shuttle/autodock/overmap/guppy
+	name = "Guppy"
+	shuttle_area = /area/guppy_hangar/start
+	current_location = "nav_hangar_guppy"
+
+/obj/effect/shuttle_landmark/torch/hangar/guppy
+	name = "Guppy Hangar"
+	landmark_tag = "nav_hangar_guppy"
+	base_area = /area/quartermaster/hangar
+	base_turf = /turf/simulated/floor/plating
+
+/datum/shuttle/autodock/overmap/aquila
+	name = "Aquila"
+	shuttle_area = /area/aquila_hangar/start
+	current_location = "nav_hangar_aquila"
+
+/obj/effect/shuttle_landmark/torch/hangar/aquila
+	name = "Aquila Hangar"
+	landmark_tag = "nav_hangar_aquila"
+	base_turf = /turf/simulated/floor/reinforced/airless
