@@ -9,7 +9,9 @@
 	//invisibility = 101
 
 	var/landmark_tag
+	//ID of the controller on the shuttle
 	var/docking_target = null
+	//ID of the controller on the dock side
 	var/datum/computer/file/embedded_program/docking/docking_controller
 
 	//when the shuttle leaves this landmark, it will leave behind the base area
