@@ -72,12 +72,15 @@
 		if (WAIT_LAUNCH)
 			if(check_undocked())
 				//*** ready to go
-				process_launch()
-				process_state = WAIT_ARRIVE
+				if(next_location.is_valid(src))
+					process_launch()
+					process_state = WAIT_ARRIVE
+				else
+					process_state = IDLE_STATE
+					in_use = null
 
 		if (FORCE_LAUNCH)
 			process_launch()
-			process_state = WAIT_ARRIVE
 
 		if (WAIT_ARRIVE)
 			if (moving_status == SHUTTLE_IDLE)
@@ -102,9 +105,9 @@
 
 /datum/shuttle/autodock/proc/process_launch()
 	if (move_time && landmark_transition)
-		long_jump(next_location, landmark_transition, move_time)
+		return long_jump(next_location, landmark_transition, move_time)
 	else
-		short_jump(next_location)
+		return short_jump(next_location)
 
 /*
 	Guards

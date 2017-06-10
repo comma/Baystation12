@@ -34,7 +34,20 @@
 			log_error("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
+	var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), shuttle.shuttle_area.contents)
+	if(check_collision(translation))
+		world << "Failed collision check"
+		return FALSE
 	return TRUE
+
+/obj/effect/shuttle_landmark/proc/check_collision(var/list/turf_translation)
+	for(var/source in turf_translation)
+		var/turf/target = turf_translation[source]
+		if(!target)
+			return TRUE //collides with edge of map
+		if(target.loc != base_area)
+			return TRUE //collides with another area
+	return FALSE
 
 //Self-naming/numbering ones.
 /obj/effect/shuttle_landmark/automatic

@@ -57,7 +57,7 @@
 	moving_status = SHUTTLE_WARMUP
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
-			return	//someone cancelled the launch
+			return FALSE	//someone cancelled the launch
 
 		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 		attempt_move(destination)
@@ -79,7 +79,6 @@
 		if(attempt_move(interim))
 			while (world.time < arrive_time)
 				sleep(5)
-
 			if(!attempt_move(destination))
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location
 
@@ -94,11 +93,6 @@
 		return FALSE
 
 	var/list/translation = get_turf_translation(get_turf(current_location), get_turf(destination), shuttle_area.contents)
-
-	if(check_collision(translation, destination))
-		world << "Failed collision check"
-		return FALSE
-
 	shuttle_moved(destination, translation)
 
 	return TRUE
@@ -173,12 +167,3 @@
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
 	return (moving_status == SHUTTLE_INTRANSIT)
-
-/datum/shuttle/proc/check_collision(var/list/turf_translation, var/obj/effect/shuttle_landmark/destination)
-	for(var/source in turf_translation)
-		var/turf/target = turf_translation[source]
-		if(!target)
-			return TRUE //collides with edge of map
-		if(target.loc != destination.base_area)
-			return TRUE //collides with another area
-	return FALSE
