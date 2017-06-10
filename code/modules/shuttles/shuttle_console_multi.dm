@@ -1,7 +1,7 @@
-/obj/machinery/computer/shuttle_control/multi_shuttle
+/obj/machinery/computer/shuttle_control/multi
 	ui_template = "shuttle_control_console_multi.tmpl"
 
-/obj/machinery/computer/shuttle_control/multi_shuttle/get_ui_data(var/datum/shuttle/autodock/multi/shuttle)
+/obj/machinery/computer/shuttle_control/multi/get_ui_data(var/datum/shuttle/autodock/multi/shuttle)
 	. = ..()
 	if(istype(shuttle))
 		. += list(
@@ -9,7 +9,7 @@
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 		)
 
-/obj/machinery/computer/shuttle_control/multi_shuttle/handle_topic_href(var/datum/shuttle/autodock/multi/shuttle, var/list/href_list)
+/obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/datum/shuttle/autodock/multi/shuttle, var/list/href_list)
 	..()
 
 	if(!istype(shuttle))
@@ -21,17 +21,17 @@
 			shuttle.set_destination(dest_key, usr)
 
 
-/obj/machinery/computer/shuttle_control/multi_shuttle/antag
+/obj/machinery/computer/shuttle_control/multi/antag
 	ui_template = "shuttle_control_console_antag.tmpl"
 
-/obj/machinery/computer/shuttle_control/multi_shuttle/antag/get_ui_data(var/datum/shuttle/autodock/multi/antag/shuttle)
+/obj/machinery/computer/shuttle_control/multi/antag/get_ui_data(var/datum/shuttle/autodock/multi/antag/shuttle)
 	. = ..()
 	if(istype(shuttle))
 		. += list(
 			"cloaked" = shuttle.cloaked,
 		)
 
-/obj/machinery/computer/shuttle_control/multi_shuttle/antag/handle_topic_href(var/datum/shuttle/autodock/multi/antag/shuttle, var/list/href_list)
+/obj/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/datum/shuttle/autodock/multi/antag/shuttle, var/list/href_list)
 	..()
 
 	if(!istype(shuttle))
