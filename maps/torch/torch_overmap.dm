@@ -26,32 +26,32 @@
 	)
 
 /obj/effect/shuttle_landmark/cluster/guppy
-	name = "Navpoint #1"
+	name = "Asteroid Navpoint #1"
 	landmark_tag = "nav_cluster_1"
 
 /obj/effect/shuttle_landmark/cluster/aquila
-	name = "Navpoint #2"
+	name = "Asteroid Navpoint #2"
 	landmark_tag = "nav_cluster_2"
 
 /obj/effect/shuttle_landmark/cluster/calypso
-	name = "Navpoint #3"
+	name = "Asteroid Navpoint #3"
 	landmark_tag = "nav_cluster_3"
 
 /obj/effect/shuttle_landmark/cluster/ert
-	name = "Navpoint #4"
+	name = "Asteroid Navpoint #4"
 	landmark_tag = "nav_cluster_4"
 
 /obj/effect/shuttle_landmark/cluster/ninja
-	name = "Navpoint #5"
+	name = "Asteroid Navpoint #5"
 	landmark_tag = "nav_cluster_6"
 
 /obj/effect/shuttle_landmark/cluster/syndie
-	name = "Landing zone #1"
+	name = "Asteroid Landing zone #1"
 	landmark_tag = "nav_cluster_5"
 	base_area = /area/mine/explored
 
 /obj/effect/shuttle_landmark/cluster/skipjack
-	name = "Landing zone #2"
+	name = "Asteroid Landing zone #2"
 	landmark_tag = "nav_cluster_7"
 	base_area = /area/mine/explored
 
@@ -74,34 +74,32 @@
 	)
 
 /obj/effect/shuttle_landmark/derelict/guppy
-	name = "Navpoint #1"
+	name = "Debris Navpoint #1"
 	landmark_tag = "nav_derelict_1"
 
 /obj/effect/shuttle_landmark/derelict/aquila
-	name = "Navpoint #2"
+	name = "Debris Navpoint #2"
 	landmark_tag = "nav_derelict_2"
 
 /obj/effect/shuttle_landmark/derelict/calypso
-	name = "Navpoint #3"
+	name = "Debris Navpoint #3"
 	landmark_tag = "nav_derelict_3"
 
 /obj/effect/shuttle_landmark/derelict/ert
-	name = "Navpoint #4"
+	name = "Debris Navpoint #4"
 	landmark_tag = "nav_derelict_4"
 
 /obj/effect/shuttle_landmark/derelict/ninja
-	name = "Navpoint #5"
-	landmark_tag = "nav_derelict_6"
+	name = "Debris Navpoint #5"
+	landmark_tag = "nav_derelict_5"
 
 /obj/effect/shuttle_landmark/derelict/syndie
-	name = "Landing zone #1"
-	landmark_tag = "nav_derelict_5"
-	base_area = /area/mine/explored
+	name = "Debris Navpoint #6"
+	landmark_tag = "nav_derelict_6"
 
 /obj/effect/shuttle_landmark/derelict/skipjack
-	name = "Landing zone #2"
+	name = "Debris Navpoint #7"
 	landmark_tag = "nav_derelict_7"
-	base_area = /area/mine/explored
 
 /obj/effect/overmap/sector/away
 	name = "faint signal"
@@ -121,31 +119,31 @@
 	base_area = /area/mine/explored
 
 /obj/effect/shuttle_landmark/away/guppy
-	name = "Landing zone #1"
+	name = "Away Landing zone #1"
 	landmark_tag = "nav_away_1"
 
 /obj/effect/shuttle_landmark/away/aquila
-	name = "Landing zone #2"
+	name = "Away Landing zone #2"
 	landmark_tag = "nav_away_2"
 
 /obj/effect/shuttle_landmark/away/calypso
-	name = "Landing zone #3"
+	name = "Away Landing zone #3"
 	landmark_tag = "nav_away_3"
 
 /obj/effect/shuttle_landmark/away/ert
-	name = "Landing zone #4"
+	name = "Away Landing zone #4"
 	landmark_tag = "nav_away_4"
 
 /obj/effect/shuttle_landmark/away/syndie
-	name = "Landing zone #5"
+	name = "Away Landing zone #5"
 	landmark_tag = "nav_away_5"
 
 /obj/effect/shuttle_landmark/away/ninja
-	name = "Landing zone #6"
+	name = "Away Landing zone #6"
 	landmark_tag = "nav_away_6"
 
 /obj/effect/shuttle_landmark/away/skipjack
-	name = "Landing zone #7"
+	name = "Away Landing zone #7"
 	landmark_tag = "nav_away_7"
 
 /obj/machinery/computer/shuttle_control/explore/aquila
