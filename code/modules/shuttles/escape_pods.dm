@@ -24,6 +24,8 @@ var/list/escape_pods_by_name = list()
 
 	//find the pod's own controller
 	var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = active_docking_controller
+	var/datum/computer/file/embedded_program/docking/simple/prog = locate(current_location.docking_target)
+	var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = prog.master
 	if(!istype(controller_master))
 		CRASH("Escape pod \"[name]\" could not find it's controller master!")
 
@@ -89,11 +91,7 @@ var/list/escape_pods_by_name = list()
 //This controller is for the escape pod berth (station side)
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth
 	name = "escape pod berth controller"
-
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/initialize()
-	..()
-	docking_program = new/datum/computer/file/embedded_program/docking/simple/escape_pod(src)
-	program = docking_program
+	progtype = /datum/computer/file/embedded_program/docking/simple/escape_pod
 
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
