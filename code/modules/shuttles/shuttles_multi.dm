@@ -8,11 +8,10 @@
 
 	//build destination list
 	var/list/found_waypoints = list()
-	var/i = 1
 	for(var/waypoint_tag in destinations)
 		var/obj/effect/shuttle_landmark/WP = locate(waypoint_tag)
 		if(WP)
-			destinations["([i]) [WP.name]"] = WP
+			found_waypoints["[WP.name]"] = WP
 		else
 			log_error("Shuttle [name] could not find waypoint with tag [waypoint_tag]!")
 	destinations = found_waypoints
@@ -62,7 +61,7 @@
 	command_announcement.Announce(arrival_message, announcer || "[using_map.boss_name]")
 
 /datum/shuttle/autodock/multi/antag/set_destination(var/destination_key, mob/user)
-	if(!return_warning)
+	if(!return_warning && destination_key == home_waypoint.name)
 		to_chat(user, "<span class='danger'>Returning to your home base will end your mission. If you are sure, press the button again.</span>")
 		return_warning = 1
 		return
