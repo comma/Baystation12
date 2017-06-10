@@ -128,9 +128,8 @@ var/list/point_source_descriptions = list(
 /datum/controller/supply
 	//supply points
 	var/points = 50
-	var/points_per_process = 1
+	var/points_per_process = 1.5
 	var/points_per_slip = 2
-	var/points_per_crate = 5
 	var/points_per_platinum = 5 // 5 points per sheet
 	var/points_per_phoron = 5
 	var/point_sources = list()
@@ -183,18 +182,18 @@ var/list/point_source_descriptions = list(
 	proc/sell()
 		var/phoron_count = 0
 		var/plat_count = 0
-
 		for(var/atom/movable/MA in shuttle.shuttle_area)
 			if(MA.anchored)	continue
 
 			// Must be in a crate!
 			if(istype(MA,/obj/structure/closet/crate))
-				callHook("sell_crate", list(MA, shuttle.shuttle_area))
+				var/obj/structure/closet/crate/CR = MA
+				callHook("sell_crate", list(CR, shuttle.shuttle_area))
 
-				add_points_from_source(points_per_crate, "crate")
+				add_points_from_source(CR.points_per_crate, "crate")
 				var/find_slip = 1
 
-				for(var/atom in MA)
+				for(var/atom in CR)
 					// Sell manifests
 					var/atom/A = atom
 					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
