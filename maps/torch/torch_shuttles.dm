@@ -4,7 +4,6 @@
 	var/number
 
 /datum/shuttle/autodock/ferry/escape_pod/torchpod/New()
-	testing("Making pod #[number]")
 	name = "Escape Pod [number]"
 	arming_controller = "escape_pod_[number]_berth"
 	waypoint_station = "escape_pod_[number]_start"

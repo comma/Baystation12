@@ -52,13 +52,17 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/shuttle_control/explore/Topic(href, href_list)
+/obj/machinery/computer/shuttle_control/explore/get_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
+	. = ..()
+	if(istype(shuttle))
+		. += list(
+			"destination_name" = shuttle.get_destination_name(),
+			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
+		)
+
+/obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/datum/shuttle/autodock/overmap/shuttle, var/list/href_list)
 	if(..())
 		return 1
-
-	var/datum/shuttle/autodock/overmap/shuttle = shuttle_controller.shuttles[shuttle_tag]
-	if (!istype(shuttle))
-		return
 
 	if(href_list["pick"])
 		var/list/possible_d = shuttle.get_possible_destinations()
@@ -70,10 +74,3 @@
 		possible_d = shuttle.get_possible_destinations()
 		if(CanInteract(usr, default_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
-
-	else if(href_list["move"])
-		shuttle.launch(src)
-	else if(href_list["force"])
-		shuttle.force_launch(src)
-	else if(href_list["cancel"])
-		shuttle.cancel_launch(src)

@@ -35,10 +35,7 @@
 
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
 	var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), shuttle.shuttle_area.contents)
-	if(check_collision(translation))
-		world << "Failed collision check"
-		return FALSE
-	return TRUE
+	return check_collision(translation)
 
 /obj/effect/shuttle_landmark/proc/check_collision(var/list/turf_translation)
 	for(var/source in turf_translation)

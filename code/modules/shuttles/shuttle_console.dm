@@ -59,6 +59,9 @@
 		return
 
 	if(href_list["move"])
+		if(!shuttle.next_location.is_valid(src))
+			to_chat(usr, "<span class='warning'>Destination zone is invalid or obstructed.</span>")
+			return
 		shuttle.launch(src)
 	else if(href_list["force"])
 		shuttle.force_launch(src)
