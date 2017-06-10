@@ -121,8 +121,6 @@
 
 /proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf)
 	for(var/turf/source in translation)
-		if(!source.is_solid_structure())
-			continue
 
 		var/turf/target = translation[source]
 
