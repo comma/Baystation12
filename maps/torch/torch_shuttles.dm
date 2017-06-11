@@ -1,6 +1,8 @@
 //Some helpers because so much copypasta for pods
 /datum/shuttle/autodock/ferry/escape_pod/torchpod
 	category = /datum/shuttle/autodock/ferry/escape_pod/torchpod
+	sound_takeoff = 'sound/effects/rocket.ogg'
+	sound_landing = 'sound/effects/rocket_backwards.ogg'
 	var/number
 
 /datum/shuttle/autodock/ferry/escape_pod/torchpod/New()
@@ -562,10 +564,13 @@ S
 
 /datum/shuttle/autodock/overmap/guppy
 	name = "Guppy"
+	warmup_time = 5
 	move_time = 30
 	shuttle_area = /area/guppy_hangar/start
 	current_location = "nav_hangar_guppy"
 	landmark_transition = "nav_transit_guppy"
+	sound_takeoff = 'sound/effects/rocket.ogg'
+	sound_landing = 'sound/effects/rocket_backwards.ogg'
 
 /obj/effect/shuttle_landmark/torch/hangar/guppy
 	name = "Guppy Hangar"

@@ -14,6 +14,9 @@
 
 	var/ceiling_type = /turf/unsimulated/floor/shuttle_ceiling
 
+	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
+	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
+
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
 	if(_name)
@@ -53,8 +56,9 @@
 /datum/shuttle/proc/short_jump(var/obj/effect/shuttle_landmark/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 
-	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
+	if(sound_takeoff)
+		playsound(current_location, sound_takeoff, 100, 20, 0.2)
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return FALSE	//someone cancelled the launch
@@ -68,8 +72,9 @@
 
 	var/obj/effect/shuttle_landmark/start_location = current_location
 
-	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
+	if(sound_takeoff)
+		playsound(current_location, sound_takeoff, 100, 20, 0.2)
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -77,7 +82,11 @@
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
 		if(attempt_move(interim))
+			var/fwooshed = 0
 			while (world.time < arrive_time)
+				if(!fwooshed && (arrive_time - world.time) < 100)
+					fwooshed = 1
+					playsound(destination, sound_landing, 100, 0, 7)
 				sleep(5)
 			if(!attempt_move(destination))
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location
