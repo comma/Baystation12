@@ -6,7 +6,7 @@
 	anchored = 1
 	unacidable = 1
 	simulated = 0
-	//invisibility = 101
+	invisibility = 101
 
 	var/landmark_tag
 	//ID of the controller on the shuttle

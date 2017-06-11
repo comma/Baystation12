@@ -525,7 +525,7 @@ S
 
 /datum/shuttle/autodock/overmap/calypso
 	name = "Calypso"
-	move_time = 60
+	move_time = 90
 	shuttle_area = /area/calypso_hangar/start
 	current_location = "nav_hangar_calypso"
 	landmark_transition = "nav_transit_calypso"
@@ -562,7 +562,7 @@ S
 
 /datum/shuttle/autodock/overmap/guppy
 	name = "Guppy"
-	move_time = 120
+	move_time = 30
 	shuttle_area = /area/guppy_hangar/start
 	current_location = "nav_hangar_guppy"
 	landmark_transition = "nav_transit_guppy"
