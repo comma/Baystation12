@@ -31,6 +31,9 @@
 	shuttle_area = /area/sector/shuttle/outgoing2
 	current_location = "nav_abandoned_pod"
 
+/area/sector/shuttle/outgoing2
+  name = "Exploration Pod"
+
 /area/sector/shuttle
 	name = "\improper Entry Point"
 	icon_state = "tcomsatcham"
@@ -57,19 +60,3 @@
 /obj/effect/shuttle_landmark/pod
 	name = "Navpoint #5"
 	landmark_tag = "nav_abandoned_pod"
-
-// TODO: get rid of these
-/area/sector/shuttle/ingoing1
-	name = "\improper Entry Point #1"
-
-/area/sector/shuttle/ingoing2
-	name = "\improper Entry Point #2"
-
-/area/sector/shuttle/ingoing3
-	name = "\improper Entry Point #3"
-
-/area/sector/shuttle/ingoing4
-	name = "\improper Entry Point #4"
-
-/area/sector/shuttle/outgoing2
-	name = "\improper Exit Point #2"

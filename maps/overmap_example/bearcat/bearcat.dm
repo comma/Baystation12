@@ -31,25 +31,23 @@
 //subtypes can be used to hold the shuttle-specific data
 /obj/effect/shuttle_landmark/docking_arm_starboard
 	name = "Bearcat Starboard-side Docking Arm"
-	docking_target = "bearcat_starboard_dock"
+	docking_controller = "bearcat_starboard_dock"
 
 /obj/effect/shuttle_landmark/docking_arm_starboard/shuttle
 	landmark_tag = "nav_bearcat_starboard_dock_shuttle"
-	docking_controller = "shuttle_port" //shuttle's port hatch docks with the starboard arm
+	docking_target = "shuttle_port" //shuttle's port hatch docks with the starboard arm
 
 /obj/effect/shuttle_landmark/docking_arm_starboard/pod
 	landmark_tag = "nav_bearcat_starboard_dock_pod"
-	docking_controller = "exploration_pod"
-
+	docking_target = "exploration_pod"
 
 /obj/effect/shuttle_landmark/docking_arm_port
 	name = "Bearcat Port-side Docking Arm"
-	docking_target = "bearcat_port_dock"
+	docking_controller = "bearcat_dock_port"
 
 /obj/effect/shuttle_landmark/docking_arm_port/shuttle
 	landmark_tag = "nav_bearcat_port_dock_shuttle"
-	docking_controller = "shuttle_starboard" //shuttle's starboard hatch docks with the port arm
-
+	docking_target = "shuttle_starboard" //shuttle's starboard hatch docks with the port arm
 
 //Not all waypoints need subtypes. This one is pretty generic, having no dock
 /obj/effect/shuttle_landmark/below_deck
