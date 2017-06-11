@@ -38,7 +38,7 @@ var/list/sector_shuttles = list()
 	var/list/res = list()
 	for (var/obj/effect/overmap/S in range(waypoint_sector(current_location), range))
 		for(var/obj/effect/shuttle_landmark/LZ in S.get_waypoints(src.name))
-			if(LZ != current_location)
+			if(LZ.is_valid(src))
 				res["[S.name] - [LZ.name]"] = LZ
 	return res
 

@@ -59,7 +59,7 @@
 		return
 
 	if(href_list["move"])
-		if(!shuttle.next_location.is_valid(src))
+		if(!shuttle.next_location.is_valid(shuttle))
 			to_chat(usr, "<span class='warning'>Destination zone is invalid or obstructed.</span>")
 			return
 		shuttle.launch(src)
