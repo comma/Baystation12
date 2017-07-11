@@ -26,9 +26,8 @@
 
 	minbodytemp = 0
 	maxbodytemp = 350
-	min_oxy = 0
-	max_co2 = 0
-	max_tox = 0
+	min_gas = null
+	max_gas = null
 
 	a_intent = I_HURT //so they don't get pushed around
 
@@ -123,7 +122,7 @@
 
 		return
 
-	proc/update_icon() //only for the sake of consistency with the other update icon procs
+	update_icon() //only for the sake of consistency with the other update icon procs
 		if(stat == CONSCIOUS || stat == UNCONSCIOUS)
 			if(previous) //midsection
 				icon_state = "spaceworm[get_dir(src,previous) | get_dir(src,next)]" //see 3 lines below

@@ -8,10 +8,7 @@
 	var/holy = 0
 
 	// Initial air contents (in moles)
-	var/oxygen = 0
-	var/carbon_dioxide = 0
-	var/nitrogen = 0
-	var/phoron = 0
+	var/list/initial_gas
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
@@ -28,6 +25,8 @@
 
 	var/list/decals
 
+	var/movement_delay
+
 /turf/New()
 	..()
 	for(var/atom/movable/AM as mob|obj in src)
@@ -42,9 +41,6 @@
 		luminosity = 1
 
 /turf/proc/initialize()
-	return
-
-/turf/proc/update_icon()
 	return
 
 /turf/Destroy()
