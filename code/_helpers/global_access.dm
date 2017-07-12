@@ -1033,8 +1033,6 @@
 			return global.player_list;
 		if("point_source_descriptions")
 			return global.point_source_descriptions;
-		if("points_of_interest")
-			return global.points_of_interest;
 		if("possible_cable_coil_colours")
 			return global.possible_cable_coil_colours;
 		if("possible_changeling_IDs")
@@ -2524,8 +2522,6 @@
 			global.player_list=newval;
 		if("point_source_descriptions")
 			global.point_source_descriptions=newval;
-		if("points_of_interest")
-			global.points_of_interest=newval;
 		if("possible_cable_coil_colours")
 			global.possible_cable_coil_colours=newval;
 		if("possible_changeling_IDs")
@@ -3508,7 +3504,6 @@
 	"playable_species",
 	"player_list",
 	"point_source_descriptions",
-	"points_of_interest",
 	"possible_cable_coil_colours",
 	"possible_changeling_IDs",
 	"poster_designs",

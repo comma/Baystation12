@@ -1,8 +1,6 @@
 //===================================================================================
 //Overmap object representing zlevel(s)
 //===================================================================================
-var/list/points_of_interest = list()
-
 /obj/effect/overmap
 	name = "map object"
 	icon = 'icons/obj/overmap.dmi'
@@ -70,8 +68,6 @@ var/list/points_of_interest = list()
 	. = generic_waypoints.Copy()
 	if(shuttle_name in restricted_waypoints)
 		. += restricted_waypoints[shuttle_name]
-
-	points_of_interest += name
 
 /obj/effect/overmap/sector
 	name = "generic sector"

@@ -57,13 +57,20 @@
 	welcome_text += "Time since last port visit:<br /><b>[rand(60,180)] days</b><br />"
 	welcome_text += "Scan results:<br />"
 	var/list/scan_results = list()
-	for(var/poi in points_of_interest)
-		if(poi == "SEV Torch")
-			continue
-		if(isnull(scan_results[poi]))
-			scan_results[poi] = 1
+	var/area/overmap/A = locate() in world
+	if(!A)
+		world << "Couldn't find overmap area"
+	else
+		world << "Found overmap area, contents: [json_encode(A.contents)]"
+	for(var/obj/effect/overmap_event/E in A)
+		if(isnull(scan_results[E.name]))
+			scan_results[E.name] = 1
 		else
-			scan_results[poi] += 1
+			scan_results[E.name] += 1
+	for(var/obj/effect/overmap/O in A)
+		if(O.base)
+			continue
+		scan_results[O.name] = 1
 	for(var/result in scan_results)
 		var/count = scan_results[result]
 		if(count == 1)
@@ -81,4 +88,7 @@
 	new /datum/random_map/noise/ore(null,1,1,7,64, 64)             // Create the mining ore distribution map.
 	new /datum/random_map/automata/cave_system(null,1,1,9,world.maxx,world.maxy) // Create the mining Z-level.
 	new /datum/random_map/noise/ore(null,1,1,9,64, 64)             // Create the mining ore distribution map.
+	var/T = pick(subtypesof(/obj/effect/overmap/sector/exoplanet))
+	testing("Making [T]")
+	new T()
 	return 1
