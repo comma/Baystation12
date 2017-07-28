@@ -55,10 +55,11 @@
 	flags = XGM_GAS_FUEL
 
 /decl/xgm_gas/alium
-	id = "aliether"
+	id = "alium"
 	name = "Aliether"
 
 /decl/xgm_gas/alium/New()
+	name = "Compound [pick(possible_changeling_IDs)]-[rand(100,999)]"
 	specific_heat = rand(20, 400)	// J/(mol*K)
 	molar_mass = rand(20,500)/100	// kg/mol
 	if(prob(40))
