@@ -207,6 +207,24 @@
 	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
 	applies_stasis = 0
 
+/obj/machinery/cryopod/lifepod
+	name = "life pod"
+	desc = "A man-sized pod for entering suspended animation. Dubbed 'cryocoffin' by more cynical spacers, it is pretty barebone, counting on stasis system to keep the victim alive rather than packing extended supply of food or air. Can be ordered with symbols of common religious denominations to be used in space funerals too."
+	on_store_name = "Life Pod Oversight"
+	time_till_despawn = 20 MINUTES
+	icon_state = "syndipod_0"
+	base_icon_state = "syndipod_0"
+	occupied_icon_state = "syndipod_1"
+
+//Ain't no one going to get things back from these
+/obj/machinery/cryopod/lifepod/find_control_computer()
+	return 1
+
+//Don't use these for in-round leaving
+/obj/machinery/cryopod/lifepod/process()
+	if(evacuation_controller && evacuation_controller.state >= EVAC_LAUNCHING)
+		..()
+
 /obj/machinery/cryopod/New()
 	announce = new /obj/item/device/radio/intercom(src)
 	..()
@@ -371,8 +389,9 @@
 	//  and records should not be fetched by name as there is no guarantee names are unique
 	var/role_alt_title = occupant.mind ? occupant.mind.role_alt_title : "Unknown"
 
-	control_computer.frozen_crew += "[occupant.real_name], [role_alt_title] - [stationtime2text()]"
-	control_computer._admin_logs += "[key_name(occupant)] ([role_alt_title]) at [stationtime2text()]"
+	if(control_computer)
+		control_computer.frozen_crew += "[occupant.real_name], [role_alt_title] - [stationtime2text()]"
+		control_computer._admin_logs += "[key_name(occupant)] ([role_alt_title]) at [stationtime2text()]"
 	log_and_message_admins("[key_name(occupant)] ([role_alt_title]) entered cryostorage.")
 
 	announce.autosay("[occupant.real_name], [role_alt_title], [on_store_message]", "[on_store_name]")
