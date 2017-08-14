@@ -1,4 +1,4 @@
-#include "bearcat.dm"
+
 #include "bearcat_areas.dm"
 #include "bearcat_jobs.dm"
 #include "bearcat_loadouts.dm"
@@ -12,10 +12,9 @@
 	start_y = 4
 	base = 1
 
-	generic_waypoints = list("nav_bearcat_below")
+	generic_waypoints = list("nav_bearcat_below", "nav_bearcat_port_dock_shuttle")
 	restricted_waypoints = list(
 		"Exploration Pod" = list("nav_bearcat_starboard_dock_pod"), //pod can only dock starboard-side, b/c there's only one door.
-		"Exploration Shuttle" = list("nav_bearcat_port_dock_shuttle", "nav_bearcat_starboard_dock_shuttle"),
 	)
 
 /obj/machinery/computer/shuttle_control/explore/bearcat
@@ -40,10 +39,6 @@
 /obj/effect/shuttle_landmark/docking_arm_starboard
 	name = "Bearcat Starboard-side Docking Arm"
 	docking_controller = "bearcat_starboard_dock"
-
-/obj/effect/shuttle_landmark/docking_arm_starboard/shuttle
-	landmark_tag = "nav_bearcat_starboard_dock_shuttle"
-	special_dock_targets = list("Exploration Shuttle" = "shuttle_port")
 
 /obj/effect/shuttle_landmark/docking_arm_starboard/pod
 	landmark_tag = "nav_bearcat_starboard_dock_pod"
