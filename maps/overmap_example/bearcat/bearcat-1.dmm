@@ -1,6 +1,5 @@
 "aa" = (/turf/space,/area/space)
 "ab" = (/obj/structure/window/reinforced{dir = 4},/turf/space,/area/space)
-"ac" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "cargo_out"},/obj/machinery/access_button/airlock_exterior{master_tag = "cargo"; pixel_x = 18; pixel_y = 17},/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "ad" = (/obj/structure/window/reinforced{dir = 8},/turf/space,/area/space)
 "ae" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "af" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{frequency = 1379; id_tag = "cargo_pump"},/obj/machinery/embedded_controller/radio/airlock/docking_port{id_tag = "cargo"; pixel_x = 24; tag_airpump = "cargo_pump"; tag_chamber_sensor = "cargo_sensor"; tag_exterior_door = "cargo_out"; tag_interior_door = "cargo_in"},/obj/machinery/light/small{dir = 4},/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
@@ -57,6 +56,7 @@
 "by" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; layer = 2.4; level = 2},/obj/structure/holostool,/turf/simulated/floor/tiled/dark,/area/ship/scrap/crew/dorms1)
 "bz" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 10},/obj/structure/curtain/open/bed,/obj/structure/bed/padded,/obj/item/weapon/bedsheet/brown,/obj/effect/landmark/start{name = "Cargo Technician"},/turf/simulated/floor/tiled/dark,/area/ship/scrap/crew/dorms1)
 "bA" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 9},/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light/small{icon_state = "bulb1"; dir = 8},/obj/effect/floor_decal/industrial/warning/corner,/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
+"bB" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "eva_out"},/obj/machinery/access_button/airlock_exterior{master_tag = "eva"; pixel_x = 18; pixel_y = -18},/obj/machinery/shield_diffuser,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
 "bC" = (/obj/effect/floor_decal/industrial/warning,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
 "bD" = (/obj/effect/floor_decal/industrial/warning,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
 "bE" = (/obj/effect/floor_decal/industrial/warning,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
@@ -157,7 +157,6 @@
 "dR" = (/obj/machinery/atmospherics/pipe/simple/hidden{tag = "icon-intact (EAST)"; icon_state = "intact"; dir = 4},/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "eva_in"},/obj/machinery/access_button/airlock_interior{master_tag = "eva"; pixel_x = -12; pixel_y = 20},/obj/machinery/door/blast/regular{density = 0; dir = 4; icon_state = "pdoor0"; id = "scraplock"; name = "External Blast Doors"; opacity = 0},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
 "dS" = (/obj/machinery/light/small{icon_state = "bulb1"; dir = 1},/obj/machinery/airlock_sensor{id_tag = "eva_sensor"; pixel_y = 40},/obj/machinery/atmospherics/pipe/simple/hidden{tag = "icon-intact (EAST)"; icon_state = "intact"; dir = 4},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{id_tag = "eva"; pixel_y = 25; tag_airpump = "eva_pump"; tag_chamber_sensor = "eva_sensor"; tag_exterior_door = "eva_out"; tag_interior_door = "eva_in"},/obj/effect/floor_decal/industrial/warning{dir = 10},/obj/effect/floor_decal/industrial/warning{dir = 1},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
 "dT" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 8; frequency = 1379; id_tag = "eva_pump"},/obj/effect/floor_decal/industrial/warning{dir = 5},/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
-"dU" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "eva_out"},/obj/machinery/access_button/airlock_exterior{master_tag = "eva"; pixel_x = 18; pixel_y = -18},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
 "eb" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/eva)
 "ec" = (/obj/effect/floor_decal/industrial/warning{dir = 1},/obj/effect/floor_decal/industrial/loading{tag = "icon-loadingarea (NORTH)"; icon_state = "loadingarea"; dir = 1},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/lower)
 "ed" = (/obj/effect/landmark/test/space_turf,/turf/space,/area/space)
@@ -165,7 +164,6 @@
 "el" = (/obj/machinery/suit_storage_unit/engineering/salvage,/obj/machinery/light/small,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/eva)
 "em" = (/obj/machinery/suit_storage_unit/engineering/salvage,/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/eva)
 "en" = (/obj/effect/landmark/test/safe_turf,/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
-"fb" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "cargo_out"},/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "fc" = (/obj/machinery/light/small/red{tag = "icon-bulb1 (EAST)"; icon_state = "bulb1"; dir = 4},/obj/effect/floor_decal/industrial/warning{dir = 1},/obj/effect/floor_decal/industrial/loading{tag = "icon-loadingarea (NORTH)"; icon_state = "loadingarea"; dir = 1},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/lower)
 "fD" = (/obj/structure/grille,/obj/machinery/door/blast/regular{density = 0; dir = 4; icon_state = "pdoor0"; id = "scraplock"; name = "External Blast Doors"; opacity = 0},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor,/area/ship/scrap/maintenance/storage)
 "gb" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{frequency = 1379; id_tag = "cargo_pump"},/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
@@ -194,6 +192,7 @@
 "so" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{icon_state = "map-scrubbers"; dir = 1},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
 "tb" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/cable{icon_state = "6-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/closet/coffin,/obj/random/drinkbottle,/obj/item/weapon/contraband/poster,/obj/item/stack/material/phoron/ten,/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
 "ub" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning,/obj/structure/closet/crate,/obj/item/weapon/fossil/skull,/obj/item/weapon/fossil/bone,/obj/item/weapon/fossil/bone,/obj/item/weapon/fossil/shell,/obj/item/xenos_claw,/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
+"uh" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "cargo_out"},/obj/machinery/shield_diffuser,/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "vb" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/item/device/radio/intercom{dir = 8; pixel_x = 22},/obj/structure/cable{d1 = 16; d2 = 0; icon_state = "16-0"},/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/lower)
 "wb" = (/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 24},/obj/item/stack/cable_coil/random,/turf/simulated/floor/airless,/area/ship/scrap/broken2)
 "wA" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
@@ -207,7 +206,6 @@
 "Ak" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
 "Ba" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating,/area/ship/scrap/broken1)
 "Bb" = (/turf/simulated/wall,/area/ship/scrap/maintenance/techstorage)
-"Cb" = (/obj/machinery/door/blast/regular{tag = "icon-pdoor1 (WEST)"; name = "blast door"; icon_state = "pdoor1"; dir = 8; opacity = 0; density = 0; id = "engwindow"},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/lower)
 "CI" = (/obj/structure/table/rack,/obj/item/weapon/tank/jetpack/oxygen,/obj/item/clothing/mask/breath,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
 "Db" = (/obj/item/weapon/circuitboard/helm,/obj/item/weapon/circuitboard/unary_atmos/cooler,/obj/structure/table/rack,/obj/effect/floor_decal/corner/yellow{icon_state = "corner_white"; dir = 5},/obj/machinery/alarm{pixel_y = 32},/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/techstorage)
 "Eb" = (/obj/effect/floor_decal/corner/yellow{icon_state = "corner_white"; dir = 9},/obj/effect/decal/cleanable/dirt,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{icon_state = "6-8"},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
@@ -215,11 +213,13 @@
 "Fb" = (/obj/item/weapon/circuitboard/autolathe,/obj/item/weapon/circuitboard/unary_atmos/heater,/obj/structure/table/rack,/obj/effect/floor_decal/corner/yellow{icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/techstorage)
 "FQ" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/turf/simulated/floor/plating,/area/ship/scrap/broken1)
 "Gb" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/techstorage)
+"GR" = (/obj/machinery/door/airlock/external/bolted/cycling{id_tag = "cargo_out"},/obj/machinery/access_button/airlock_exterior{master_tag = "cargo"; pixel_x = 18; pixel_y = 17},/obj/machinery/shield_diffuser,/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "Hb" = (/obj/item/weapon/storage/toolbox/mechanical{pixel_x = 5; pixel_y = -7},/obj/item/weapon/storage/toolbox/mechanical,/obj/item/clothing/head/welding,/obj/item/device/analyzer,/obj/effect/floor_decal/corner/yellow{icon_state = "corner_white"; dir = 9},/obj/structure/table/rack,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
 "Hd" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
 "Ib" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable{icon_state = "4-9"},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
 "IW" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/structure/cable{icon_state = "5-8"},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/storage)
 "Jb" = (/obj/effect/floor_decal/corner/yellow{icon_state = "corner_white"; dir = 6},/obj/structure/sign/warning/vacuum{pixel_x = 35},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8; layer = 2.4; level = 2},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/eva)
+"Jt" = (/obj/machinery/door/blast/regular{dir = 4},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/lower)
 "Kb" = (/obj/structure/table/standard,/obj/item/device/flashlight,/obj/item/device/flashlight,/obj/item/weapon/storage/box/lights/bulbs,/obj/item/weapon/storage/box/lights/mixed,/obj/structure/cable,/obj/machinery/power/apc{name = "Tools Storage APC"},/obj/effect/floor_decal/corner/yellow{icon_state = "corner_white"; dir = 9},/obj/item/taperoll/engineering,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
 "KX" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/light/small{icon_state = "bulb1"; dir = 1},/obj/structure/table/rack,/obj/item/weapon/tank/jetpack/oxygen,/obj/item/clothing/mask/breath,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/eva)
 "Lb" = (/obj/item/weapon/tape_roll,/obj/item/stack/material/plasteel/fifty,/obj/item/stack/rods/fifty,/obj/structure/table/rack,/obj/item/stack/material/ocp/ten,/obj/item/stack/material/steel/fifty,/obj/item/stack/material/plastic/fifty,/obj/item/stack/material/steel/fifty,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
@@ -235,6 +235,7 @@
 "Sb" = (/obj/item/weapon/stock_parts/console_screen,/obj/item/weapon/stock_parts/console_screen,/obj/item/weapon/stock_parts/console_screen,/obj/item/weapon/stock_parts/micro_laser,/obj/item/weapon/stock_parts/micro_laser,/obj/item/weapon/stock_parts/micro_laser,/obj/item/weapon/stock_parts/micro_laser/ultra,/obj/structure/table/rack,/obj/machinery/power/apc{dir = 2; name = "south bump"; pixel_y = -24},/obj/structure/cable,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; layer = 2.4; level = 2},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/techstorage)
 "Tb" = (/obj/effect/floor_decal/industrial/warning/corner{icon_state = "warningcorner"; dir = 4},/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 9},/obj/structure/sign/deck/second{pixel_x = -32},/turf/simulated/floor/tiled,/area/ship/scrap/cargo/lower)
 "Ts" = (/obj/effect/landmark/start{name = "Station Engineer"},/obj/effect/decal/cleanable/dirt,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_y = 0},/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/storage)
+"TJ" = (/obj/machinery/door/blast/regular{dir = 8},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/lower)
 "Ub" = (/obj/machinery/light/small{icon_state = "bulb1"; dir = 1},/obj/structure/ladder/up,/obj/effect/decal/cleanable/dirt,/obj/structure/sign/deck/second{pixel_x = 0; pixel_y = 32},/turf/simulated/floor/plating,/area/ship/scrap/maintenance/storage)
 "Vb" = (/obj/structure/grille,/obj/machinery/door/blast/regular{density = 0; dir = 4; icon_state = "pdoor0"; id = "scraplock"; name = "External Blast Doors"; opacity = 0},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/ship/scrap/cargo/lower)
 "Wb" = (/obj/machinery/cryopod/lifepod,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/lower)
@@ -277,9 +278,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabfbacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabuhGRadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaeaeadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDCbCbCbCbCbaDabgbafagQbVbawCbCbCbCbCbaDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDJtJtJtJtJtaDabgbafagQbVbawTJTJTJTJTJaDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDWbWbWbWbWbagahhbibagXbYbawWbWbWbWbWbavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDZbecececfcagaojbkbaggchcawZbecececfcavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatatauatauicawaylbmbaAaBaCawicaEaEaEaFaFaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -297,14 +298,14 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacYcZdadbcYbqawdcawawaw
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaczczcYcYcYdjdkdldmdndodpdqdrdsdfdfdfdfdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazbBbBbBbBbdtdtdududvdwdwdwdxdxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazbkcDbFbBbAblcmcUbOAdxCIKXdFdxdxdGdGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazbGbMbNbObEbsoNlhBHddNdOwAdQdRdSdTdUaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazbGbMbNbObEbsoNlhBHddNdOwAdQdRdSdTbBaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazbPbSbRbzbHbIbAkTsIWdxyjebJbdxdxeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazbzbzbzbzbKbNKLbwLEtdxiEelemdxaaaaaaaaaaaaajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadududufDdududxdxdwdwdwaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaedaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
