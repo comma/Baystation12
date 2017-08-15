@@ -433,7 +433,7 @@
 	var/rads = rad_power*25 + (sheets + sheet_left)*1.5
 	radiation_repository.radiate(src, (max(20, rads)))
 
-	explosion(src.loc, 3, 3, 5, 3)
+	explosion(src.loc, rad_power+1, rad_power+1, rad_power*2, 3)
 	qdel(src)
 
 /obj/machinery/power/port_gen/pacman/super/potato
@@ -446,7 +446,7 @@
 	temperature_gain = 80	//how much the temperature increases per power output level, in degrees per level
 	max_temperature = 450
 	time_per_sheet = 400
-	rad_power = 10
+	rad_power = 6
 	flags = OPENCONTAINER
 	board_path = /obj/item/weapon/circuitboard/pacman/super/potato
 	anchored = 1
