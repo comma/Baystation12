@@ -5,6 +5,9 @@
 	supervisors = "the Merchant Code and your conscience"
 	outfit_type = /decl/hierarchy/outfit/job/bearcat/captain
 
+/datum/job/captain/get_access()
+	return get_all_station_access()
+
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	supervisors = "the Captain"
@@ -45,16 +48,25 @@
 	total_positions = 1
 	spawn_positions = 1
 
+
+// OUTFITS
+
+
 /decl/hierarchy/outfit/job/bearcat/
 	hierarchy_type = /decl/hierarchy/outfit/job/bearcat
 	pda_type = /obj/item/device/pda
 	pda_slot = slot_l_store
+	l_ear = null
+	r_ear = null
 
 /decl/hierarchy/outfit/job/bearcat/captain
 	name = OUTFIT_JOB_NAME("Bearcat - Captain")
 	uniform = /obj/item/clothing/under/casual_pants/classicjeans
 	shoes = /obj/item/clothing/shoes/black
 	pda_type = /obj/item/device/pda/captain
+	l_pocket = /obj/item/device/radio
+	id_type = /obj/item/weapon/card/id/gold
+	
 
 /decl/hierarchy/outfit/job/bearcat/captain/post_equip(var/mob/living/carbon/human/H)
 	..()
@@ -64,7 +76,6 @@
 		if(uniform.can_attach_accessory(eyegore))
 			uniform.attach_accessory(null, eyegore)
 		else
-			world << "couldn't attach shirt"
 			qdel(eyegore)
 
 /decl/hierarchy/outfit/job/bearcat/chief_engineer
@@ -77,6 +88,8 @@
 	pda_type = /obj/item/device/pda/heads/ce
 	l_hand = /obj/item/weapon/wrench
 	belt = /obj/item/weapon/storage/belt/utility/full
+	id_type = /obj/item/weapon/card/id/engineering/head
+	l_pocket = /obj/item/device/radio
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 
 /decl/hierarchy/outfit/job/bearcat/doc
