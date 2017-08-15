@@ -4,6 +4,7 @@
 	icon_state = "ship"
 	var/vessel_mass = 100 				//tonnes, arbitrary number, affects acceleration provided by engines
 	var/default_delay = 6 SECONDS 		//time it takes to move to next tile on overmap
+	var/speed_mod = 10					//multiplier for how much ship's speed reduces above time
 	var/list/speed = list(0,0)			//speed in x,y direction
 	var/last_burn = 0					//worldtime when ship last acceleated
 	var/list/last_movement = list(0,0)	//worldtime when ship last moved in x,y direction
@@ -106,7 +107,7 @@
 	if(!is_still())
 		var/list/deltas = list(0,0)
 		for(var/i=1, i<=2, i++)
-			if(speed[i] && world.time > last_movement[i] + default_delay - abs(speed[i]))
+			if(speed[i] && world.time > last_movement[i] + default_delay - speed_mod*abs(speed[i]))
 				deltas[i] = speed[i] > 0 ? 1 : -1
 				last_movement[i] = world.time
 		var/turf/newloc = locate(x + deltas[1], y + deltas[2], z)

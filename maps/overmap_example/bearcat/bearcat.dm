@@ -1,4 +1,3 @@
-
 #include "bearcat_areas.dm"
 #include "bearcat_jobs.dm"
 #include "bearcat_loadouts.dm"
@@ -11,6 +10,8 @@
 	start_x = 4
 	start_y = 4
 	base = 1
+	default_delay = 1 MINUTES
+	speed_mod = 1 MINUTE 
 
 	generic_waypoints = list("nav_bearcat_below", "nav_bearcat_port_dock_shuttle")
 	restricted_waypoints = list(
