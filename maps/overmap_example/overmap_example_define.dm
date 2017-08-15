@@ -1,6 +1,6 @@
 /datum/map/overmap_example
-	name = "Overmap Example"
-	full_name = "The Overmap Example"
+	name = "Bearcat"
+	full_name = "CSV Bearcat"
 	path = "overmap_example"
 
 	station_name  = "CSV Bearcat"

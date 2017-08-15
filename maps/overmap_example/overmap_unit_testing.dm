@@ -9,5 +9,8 @@
 		/area/ship/scrap/maintenance/atmos = NO_SCRUBBER,
 		/area/ship/scrap/crew/hallway/port= NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/crew/hallway/starboard= NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/maintenance/lower = NO_SCRUBBER|NO_VENT
+		/area/ship/scrap/maintenance/lower = NO_SCRUBBER|NO_VENT,
+		/area/ship/scrap/maintenance = NO_SCRUBBER|NO_VENT,
+		/area/ship/scrap/escape_star = NO_SCRUBBER|NO_VENT,
+		/area/ship/scrap/escape_port = NO_SCRUBBER|NO_VENT
 	)

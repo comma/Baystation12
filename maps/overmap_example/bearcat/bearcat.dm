@@ -72,3 +72,17 @@
 
 /decl/flooring/tiling
 	name = "deck"
+
+/obj/machinery/door/airlock/autoname
+	name = "hatch"
+	icon = 'icons/obj/doors/Doorhatchmaint2.dmi'
+	explosion_resistance = 20
+	opacity = 1
+	assembly_type = /obj/structure/door_assembly/door_assembly_mhatch
+	normalspeed = 0
+
+/obj/machinery/door/airlock/autoname/New()
+	..()
+	var/area/A = get_area(src)
+	name = A.name
+
