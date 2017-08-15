@@ -10,8 +10,8 @@
 	start_x = 4
 	start_y = 4
 	base = 1
-	default_delay = 1 MINUTES
-	speed_mod = 1 MINUTE 
+	default_delay = 3 MINUTES
+	speed_mod = 0.3 MINUTE 
 
 	generic_waypoints = list("nav_bearcat_below", "nav_bearcat_port_dock_shuttle")
 	restricted_waypoints = list(
