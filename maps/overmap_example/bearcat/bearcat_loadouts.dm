@@ -55,6 +55,8 @@
 	display_name = "guns"
 	flags = GEAR_HAS_COLOR_SELECTION
 	cost = 4
+	sort_category = "Utility"
+	path = /obj/item/weapon/gun/projectile/pistol
 
 /datum/gear/accessory/guns/New()
 	..()

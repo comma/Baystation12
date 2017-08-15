@@ -12,11 +12,11 @@
 	outfit_type = /decl/hierarchy/outfit/job/bearcat/chief_engineer
 
 /datum/job/doctor
-	title = "Ship's Doc"
+	title = "Doc"
 	supervisors = "the Captain and your idea of Hippocratic Oath"
 	outfit_type = /decl/hierarchy/outfit/job/bearcat/doc
 	alt_titles = list(
-		"Ship's Surgeon")
+		"Surgeon")
 	total_positions = 1
 	spawn_positions = 1
 
