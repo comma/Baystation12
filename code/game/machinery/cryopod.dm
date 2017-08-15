@@ -212,9 +212,9 @@
 	desc = "A man-sized pod for entering suspended animation. Dubbed 'cryocoffin' by more cynical spacers, it is pretty barebone, counting on stasis system to keep the victim alive rather than packing extended supply of food or air. Can be ordered with symbols of common religious denominations to be used in space funerals too."
 	on_store_name = "Life Pod Oversight"
 	time_till_despawn = 20 MINUTES
-	icon_state = "syndipod_0"
-	base_icon_state = "syndipod_0"
-	occupied_icon_state = "syndipod_1"
+	icon_state = "redpod0"
+	base_icon_state = "redpod0"
+	occupied_icon_state = "redpod1"
 
 //Ain't no one going to get things back from these
 /obj/machinery/cryopod/lifepod/find_control_computer()
