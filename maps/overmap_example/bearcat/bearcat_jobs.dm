@@ -34,7 +34,8 @@
 	outfit_type = /decl/hierarchy/outfit/job/bearcat/hand
 	alt_titles = list(
 		"Cook" = /decl/hierarchy/outfit/job/bearcat/hand/cook,
-		"Cargo Hand")
+		"Cargo Hand",
+		"Passenger")
 
 /datum/job/engineer
 	title = "Junior Engineer"
