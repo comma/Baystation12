@@ -445,7 +445,8 @@
 	max_power_output = 8	//The maximum power setting without emagging.
 	temperature_gain = 80	//how much the temperature increases per power output level, in degrees per level
 	max_temperature = 450
-	rad_power = 4
+	time_per_sheet = 300
+	rad_power = 10
 	flags = OPENCONTAINER
 	board_path = /obj/item/weapon/circuitboard/pacman/super/potato
 	anchored = 1
