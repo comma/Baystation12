@@ -72,8 +72,16 @@
 	name = "\improper Unknown" //shielded compartment
 	icon_state = "auxstorage"
 
+/area/ship/scrap/escape_port
+	name = "\improper Port Escape Pods"
+	icon_state = "green"
+
+/area/ship/scrap/escape_star
+	name = "\improper Starboard Escape Pods"
+	icon_state = "yellow"
+
 /area/ship/scrap/broken1
-	name = "\improper Compartment 1-A"
+	name = "\improper Robotic Maintenance"
 	icon_state = "green"
 
 /area/ship/scrap/broken2
@@ -96,9 +104,17 @@
 	name = "\improper Tools Storage"
 	icon_state = "engineering_storage"
 
+/area/ship/scrap/maintenance/techstorage
+	name = "\improper Parts Storage"
+	icon_state = "engineering_supply"
+
 /area/ship/scrap/maintenance/eva
 	name = "\improper EVA Storage"
 	icon_state = "eva"
+
+/area/ship/scrap/maintenance/engineering
+	name = "\improper Engineering Bay"
+	icon_state = "engineering_supply"
 
 /area/ship/scrap/maintenance/atmos
 	name = "\improper Atmospherics Comparment"
@@ -135,3 +151,8 @@
 /area/ship/scrap/shuttle/outgoing
   name = "\improper Exploration Shuttle"
   icon_state = "tcomsatcham"
+
+/area/ship/scrap/shuttle/lift
+  name = "\improper Cargo Lift"
+  icon_state = "shuttle3"
+  base_turf = /turf/simulated/open
