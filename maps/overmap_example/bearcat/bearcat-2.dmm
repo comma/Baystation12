@@ -283,7 +283,6 @@
 "fE" = (/turf/simulated/wall,/area/ship/scrap/crew/wash)
 "fF" = (/obj/structure/disposalpipe/segment,/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -24},/turf/simulated/floor/tiled,/area/ship/scrap/crew/hallway/port)
 "fG" = (/obj/effect/floor_decal/industrial/warning,/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 9},/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/sign/warning/fall{pixel_x = -32},/turf/simulated/floor/tiled,/area/ship/scrap/cargo)
-"fH" = (/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/tiled,/area/ship/scrap/cargo)
 "fI" = (/obj/effect/floor_decal/industrial/warning,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/turf/simulated/floor/tiled,/area/ship/scrap/cargo)
 "fJ" = (/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/ship/scrap/cargo)
 "fK" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 6},/obj/structure/cable{icon_state = "2-9"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 10},/obj/effect/floor_decal/industrial/warning/corner{icon_state = "warningcorner"; dir = 8},/turf/simulated/floor/tiled,/area/ship/scrap/cargo)
@@ -543,19 +542,30 @@
 "kJ" = (/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = "scraplock"; name = "External Blast Doors"; opacity = 0},/obj/structure/sign/warning/hot_exhaust{pixel_y = 32},/turf/simulated/floor,/area/ship/scrap/maintenance/engine/aft)
 "kK" = (/turf/simulated/floor,/area/ship/scrap/maintenance/engine/aft)
 "kL" = (/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = "scraplock"; name = "External Blast Doors"; opacity = 0},/turf/simulated/floor,/area/ship/scrap/maintenance/engine/aft)
+"lP" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
 "mc" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/fuel{icon_state = "intact"; dir = 4},/obj/machinery/door/airlock/autoname/engineering,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/engine/port)
+"mq" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
+"mZ" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 6},/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
+"rs" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 9},/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
+"vs" = (/obj/effect/shuttle_landmark/lift/top,/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
+"wg" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 5},/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 6},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
 "AB" = (/obj/machinery/door/firedoor,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/fuel,/obj/machinery/door/airlock/autoname/engineering,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/engine/aft)
 "Bb" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_y = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/airlock/autoname/command,/turf/simulated/floor/tiled/dark,/area/ship/scrap/command/captain)
+"Bc" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 9},/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
 "Bg" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock/autoname/command,/turf/simulated/floor/tiled/dark,/area/ship/scrap/dock)
 "EQ" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/airlock/autoname/command,/turf/simulated/floor/tiled/dark,/area/ship/scrap/comms)
+"FQ" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
 "Gc" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/fuel{icon_state = "intact"; dir = 4},/obj/machinery/door/airlock/autoname/engineering,/turf/simulated/floor/plating,/area/ship/scrap/maintenance/engine/starboard)
+"Go" = (/obj/effect/floor_decal/corner/beige{icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
 "KO" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/door/airlock/autoname/engineering,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/power)
 "KS" = (/obj/machinery/light_switch{pixel_x = 28},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock/autoname/command,/turf/simulated/floor/tiled/dark,/area/ship/scrap/command)
 "Mp" = (/obj/machinery/door/firedoor,/obj/machinery/door/airlock/autoname/engineering,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/atmos)
+"ON" = (/turf/simulated/floor/tiled,/area/ship/scrap/shuttle/lift)
 "PE" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/fuel,/obj/machinery/door/airlock/autoname/engineering,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/engineering)
 "VK" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/dark,/area/ship/scrap/command)
 "WE" = (/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/obj/machinery/door/airlock/autoname/engineering,/turf/simulated/floor/tiled,/area/ship/scrap/maintenance/atmos)
 "Xl" = (/obj/machinery/atm{pixel_y = 25},/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -24},/turf/simulated/floor/tiled,/area/ship/scrap/dock)
+"Ya" = (/obj/effect/decal/cleanable/dirt,/obj/effect/floor_decal/industrial/outline/yellow,/obj/effect/floor_decal/industrial/warning,/obj/machinery/computer/shuttle_control/lift,/turf/simulated/floor/tiled,/area/ship/scrap/cargo)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -601,11 +611,11 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaehehaaaaaadYeiejekdZelebemeneo
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaehewexexcycyeyezeAeBdZeCebeDeEeFeGeHebeIeJeKeLeMevcycyeNeNehaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaehexexexexcyeOePeQeReSeTeUeVeWeXeYeZeUfafbfcfdfeffcyeNeNeNeNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaexfgfhmcfjdZfkflfmdZfnebfofpfqfrfsebfteefufvfwevfxGcfzfAeNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaexfBfCexfDfEfEfEfEfEfFebfGfHfIfJfKebfLeeeeeveeevfMfNfOfPeNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafQfRfRfQfSfTfUfVfWfXfYebfZfZfZfZgaebgbgcgdgegfggfSghgigigjaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagkaaaaglgmgngogpgqfEgrebfZfZfZfZgsebgtgugvgwgxgygzglaaaagkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacycyfEgAgBgCfEgDebfZfZfZfZgEebgFgugGgHgIgucyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagJgKgKgJgJgLebfZfZfZfZgMgNgOgPgQgQgQgPcyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaexfBfCexfDfEfEfEfEfEfFebfGYafIfJfKebfLeeeeeveeevfMfNfOfPeNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafQfRfRfQfSfTfUfVfWfXfYebBcGoGowggaebgbgcgdgegfggfSghgigigjaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagkaaaaglgmgngogpgqfEgrebFQvsONmqgsebgtgugvgwgxgygzglaaaagkaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacycyfEgAgBgCfEgDebFQONONmqgEebgFgugGgHgIgucyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagJgKgKgJgJgLebrslPlPmZgMgNgOgPgQgQgQgPcyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagJgRgSgTgJgUebfZfZgVgWgXebgYgPgZhahbgPcyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahchdhehfhghhhiebebebecebebebhjhkhlhmhngPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagJhohphqgKhrhshthuhvhwhxhyhzgPhAhBhCgPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

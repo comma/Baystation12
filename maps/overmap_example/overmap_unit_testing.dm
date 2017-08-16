@@ -2,7 +2,6 @@
 	// Unit test exemptions
 	apc_test_exempt_areas = list(
 		/area/space = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/ship/scrap/shuttle/ = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/sector/shuttle/ = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ship/scrap/maintenance/engine/port = NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/maintenance/engine/starboard = NO_SCRUBBER|NO_VENT,
@@ -12,5 +11,6 @@
 		/area/ship/scrap/maintenance/lower = NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/maintenance = NO_SCRUBBER|NO_VENT,
 		/area/ship/scrap/escape_star = NO_SCRUBBER|NO_VENT,
-		/area/ship/scrap/escape_port = NO_SCRUBBER|NO_VENT
+		/area/ship/scrap/escape_port = NO_SCRUBBER|NO_VENT,
+		/area/ship/scrap/shuttle/lift = NO_SCRUBBER|NO_VENT|NO_APC
 	)

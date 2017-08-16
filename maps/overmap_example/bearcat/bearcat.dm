@@ -28,12 +28,30 @@
 	dock_target = "bearcat_shuttle"
 	current_location = "nav_bearcat_port_dock_shuttle"
 
+/datum/shuttle/autodock/ferry/lift
+	name = "Cargo Lift"
+	shuttle_area = /area/ship/scrap/shuttle/lift
+	warmup_time = 3	//give those below some time to get out of the way
+	waypoint_station = "nav_bearcat_lift_top"
+	waypoint_offsite = "nav_bearcat_lift_bottom"
+	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
+	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
+	knockdown = 0
+
 /obj/structure/closet/crate/uranium
 	name = "fissibles crate"
 	desc = "A crate with a radiation sign on it."
 	icon_state = "radiation"
 	icon_opened = "radiationopen"
 	icon_closed = "radiation"
+
+/obj/machinery/computer/shuttle_control/lift
+	name = "cargo lift controls"
+	shuttle_tag = "Cargo Lift"
+	ui_template = "shuttle_control_console_lift.tmpl"
+	icon_state = "tiny"
+	icon_keyboard = "tiny_keyboard"
+	icon_screen = "lift"
 
 //In case multiple shuttles can dock at a location,
 //subtypes can be used to hold the shuttle-specific data
@@ -50,6 +68,17 @@
 
 /obj/effect/shuttle_landmark/docking_arm_port/shuttle
 	landmark_tag = "nav_bearcat_port_dock_shuttle"
+
+/obj/effect/shuttle_landmark/lift/top
+	name = "Top Deck"
+	landmark_tag = "nav_bearcat_lift_top"
+	base_turf = /turf/simulated/open
+
+/obj/effect/shuttle_landmark/lift/bottom
+	name = "Lower Deck"
+	landmark_tag = "nav_bearcat_lift_bottom"
+	base_area = /area/ship/scrap/cargo/lower
+	base_turf = /turf/simulated/floor
 
 //Not all waypoints need subtypes. This one is pretty generic, having no dock
 /obj/effect/shuttle_landmark/below_deck
