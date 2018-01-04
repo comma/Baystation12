@@ -732,3 +732,22 @@
 	if(volume >= 5 && M.is_asystole())
 		remove_self(5)
 		M.resuscitate()
+
+/datum/reagent/neoblood
+	name = "Neoblood"
+	description = "A stable hemoglobin-based nanoparticle oxygen carrier, used to rapidly replace lost blood."
+	taste_description = "blood with bubbles"
+	reagent_state = LIQUID
+	color = "#c8a5dc"
+	scannable = 1
+	overdose = 120
+	metabolism = 0.5
+
+/datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(!M.should_have_organ(BP_HEART)) //We want the var for safety but we can do without the actual blood.
+		return
+	var/blood_volume_raw = M.vessel.get_reagent_amount(/datum/reagent/blood)
+	if(blood_volume_raw < M.species.blood_volume)
+		var/datum/reagent/blood/B = M.get_blood(M.vessel)
+		if(istype(B))
+			B.volume += 4 * removed
