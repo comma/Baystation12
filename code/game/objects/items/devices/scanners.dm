@@ -131,7 +131,7 @@ proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 	if(H.is_asystole())
 		. += "<span class='danger'>Patient is suffering from cardiovascular shock. Administer CPR immediately.</span>"
 	else if(H.shock_stage > 80)
-		. += "<span class='warning'>Patient is at serious risk of entering cardiovascular shock.</span>"
+		. += "<span class='warning'>Patient is at serious risk of going int shock. Pain relief recommended.</span>"
 
 	// Other general warnings.
 	if(H.getOxyLoss() > 50)

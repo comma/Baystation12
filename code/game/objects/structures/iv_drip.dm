@@ -7,7 +7,15 @@
 	var/mode = 1 // 1 is injecting, 0 is taking blood.
 	var/obj/item/weapon/reagent_containers/beaker
 	var/list/transfer_amounts = list(REM, 1, 2)
-	var/transfer_amount = 4
+	var/transfer_amount = 1
+
+/obj/structure/iv_drip/verb/set_APTFT()
+	set name = "Set IV transfer amount"
+	set category = "Object"
+	set src in range(1)
+	var/N = input("Amount per transfer from this:","[src]") as null|anything in transfer_amounts
+	if(N)
+		transfer_amount = N
 
 /obj/structure/iv_drip/update_icon()
 	if(attached)
@@ -146,6 +154,7 @@
 		return
 
 	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
+	to_chat(user, "It is set to transfer [transfer_amount]u of chemicals per cycle.")
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.total_volume)

@@ -21,6 +21,7 @@
 	volume = 100
 	possible_transfer_amounts = "0.2;1;2"
 	amount_per_transfer_from_this = REM
+	flags = OPENCONTAINER
 
 	var/blood_type = null
 	var/mob/living/carbon/human/attached
