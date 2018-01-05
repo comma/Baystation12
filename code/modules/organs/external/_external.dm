@@ -1301,61 +1301,70 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(unknown_body)
 			. += "Unknown body present"
 
-/obj/item/organ/external/proc/inspect(mob/living/carbon/human/H, mob/user)
+/obj/item/organ/external/proc/inspect(mob/user)
 
-	var/obj/item/organ/external/E = src
-
-	if(!E || E.is_stump())
-		to_chat(user, "<span class='notice'>[H] is missing that bodypart.</span>")
+	if(is_stump())
+		to_chat(user, "<span class='notice'>[owner] is missing that bodypart.</span>")
 		return
 
-	user.visible_message("<span class='notice'>[user] starts inspecting [H]'s [E.name] carefully.</span>")
-	if(!do_mob(user,H, 10))
-		to_chat(user, "<span class='notice'>You must stand still to inspect [E] for wounds.</span>")
-	else if(E.wounds.len)
-		to_chat(user, "<span class='warning'>You find [E.get_wounds_desc()]</span>")
+	user.visible_message("<span class='notice'>[user] starts inspecting [owner]'s [name] carefully.</span>")
+	if(!do_mob(user,owner, 10))
+		to_chat(user, "<span class='notice'>You must stand still to inspect [src] for wounds.</span>")
+	else if(wounds.len)
+		to_chat(user, "<span class='warning'>You find [get_wounds_desc()]</span>")
 	else
 		to_chat(user, "<span class='notice'>You find no visible wounds.</span>")
 
-	to_chat(user, "<span class='notice'>Checking bones now...</span>")
-	if(!do_mob(user, H, 20))
-		to_chat(user, "<span class='notice'>You must stand still to feel [E] for fractures.</span>")
-	else if(E.status & ORGAN_BROKEN)
-		to_chat(user, "<span class='warning'>The [E.encased ? E.encased : "bone in the [E.name]"] moves slightly when you poke it!</span>")
-		H.custom_pain("Your [E.name] hurts where it's poked.",40, affecting = E)
-	else
-		to_chat(user, "<span class='notice'>The [E.encased ? E.encased : "bones in the [E.name]"] seem to be fine.</span>")
-
 	to_chat(user, "<span class='notice'>Checking skin now...</span>")
-	if(!do_mob(user, H, 10))
-		to_chat(user, "<span class='notice'>You must stand still to check [H]'s skin for abnormalities.</span>")
+	if(!do_mob(user, owner, 10))
+		to_chat(user, "<span class='notice'>You must stand still to check [owner]'s skin for abnormalities.</span>")
 	else
 		var/bad = 0
-		if(H.getToxLoss() >= 40)
-			to_chat(user, "<span class='warning'>[H] has an unhealthy skin discoloration.</span>")
+		if(owner.getToxLoss() >= 40)
+			to_chat(user, "<span class='warning'>[owner] has an unhealthy skin discoloration.</span>")
 			bad = 1
-		if(H.getOxyLoss() >= 20)
-			to_chat(user, "<span class='warning'>[H]'s skin is unusaly pale.</span>")
+		if(owner.getOxyLoss() >= 20)
+			to_chat(user, "<span class='warning'>[owner]'s skin is unusaly pale.</span>")
 			bad = 1
-		if(E.status & ORGAN_DEAD)
-			to_chat(user, "<span class='warning'>[E] is decaying!</span>")
+		if(owner.shock_stage >= 30)
+			to_chat(user, "<span class='warning'>[owner]'s skin is clammy and cold.</span>")
+			bad = 1
+		if(status & ORGAN_DEAD)
+			to_chat(user, "<span class='warning'>[src] is decaying!</span>")
 			bad = 1
 		if(!bad)
-			to_chat(user, "<span class='notice'>[H]'s skin is normal.</span>")
+			to_chat(user, "<span class='notice'>[owner]'s skin is normal.</span>")
+
+	to_chat(user, "<span class='notice'>Checking bones now...</span>")
+	if(!do_mob(user, owner, 10))
+		to_chat(user, "<span class='notice'>You must stand still to feel [src] for fractures.</span>")
+	else if(status & ORGAN_BROKEN)
+		to_chat(user, "<span class='warning'>The [encased ? encased : "bone in the [name]"] moves slightly when you poke it!</span>")
+		owner.custom_pain("Your [name] hurts where it's poked.",40, affecting = src)
+	else
+		to_chat(user, "<span class='notice'>The [encased ? encased : "bones in the [name]"] seem to be fine.</span>")
 	return 1
 
-/obj/item/organ/external/proc/jointlock(mob/living/carbon/human/target, mob/attacker)
-	var/obj/item/organ/external/E = src
+/obj/item/organ/external/listen()
+	var/sounds = list()
+	for(var/obj/item/organ/internal/I in internal_organs)
+		var/gutsound = I.listen()
+		if(gutsound)
+			sounds += gutsound
+	if(!sounds.len)
+		if(owner.pulse())
+			sounds += "faint pulse"
 
-	if(!E.can_feel_pain())
+/obj/item/organ/external/proc/jointlock(mob/attacker)
+	if(!can_feel_pain())
 		return
 
-	var/armor = target.run_armor_check(target, "melee")
+	var/armor = owner.run_armor_check(owner, "melee")
 	if(armor < 100)
-		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
+		to_chat(owner, "<span class='danger'>You feel extreme pain!</span>")
 
-		var/max_halloss = round(target.species.total_health * 0.8 * ((100 - armor) / 100)) //up to 80% of passing out, further reduced by armour
-		add_pain(Clamp(0, max_halloss - target.getHalLoss(), 30))
+		var/max_halloss = round(owner.species.total_health * 0.8 * ((100 - armor) / 100)) //up to 80% of passing out, further reduced by armour
+		add_pain(Clamp(0, max_halloss - owner.getHalLoss(), 30))
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/external/proc/add_autopsy_data(var/used_weapon, var/damage)

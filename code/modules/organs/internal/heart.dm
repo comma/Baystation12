@@ -134,7 +134,7 @@
 						blood_max += bleed_amount
 						do_spray += "the [temp.artery_name] in \the [owner]'s [temp.name]"
 					else
-						owner.vessel.remove_reagent(/datum/reagent/blood, bleed_amount)
+						owner.vessel.remove_reagent(/datum/reagent/blood, Floor(bleed_amount*0.6))
 
 		switch(pulse)
 			if(PULSE_SLOW)
@@ -165,3 +165,28 @@
 		return FALSE
 
 	return pulse > PULSE_NONE || robotic == ORGAN_ROBOT || (owner.status_flags & FAKEDEATH)
+
+/obj/item/organ/internal/heart/listen()
+	if(robotic == ORGAN_ROBOT && is_working())
+		if(is_bruised())
+			return "sputtering pump"
+		else
+			return "steady whirr of the pump"
+
+	if(!pulse || (owner.status_flags & FAKEDEATH))
+		return "no pulse"
+
+	var/pulsesound = "normal"
+	switch(pulse)
+		if(PULSE_SLOW)
+			pulsesound = "slow"
+		if(PULSE_FAST)
+			pulsesound = "fast"
+		if(PULSE_2FAST)
+			pulsesound = "very"
+		if(PULSE_THREADY)
+			pulsesound = "extremely fast and faint"
+	. = "[pulsesound] pulse"
+
+	if(is_bruised())
+		. += " with unhealthy noises"
