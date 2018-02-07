@@ -101,3 +101,8 @@
 		SetName("scorched ground")
 		icon_state = "scorched"
 		color = null
+
+/turf/simulated/floor/exoplanet/grass/ex_act(severity)
+	if(severity < 3 || prob(50))
+		SetName("scorched ground")
+		icon_state = "scorched"

@@ -1,0 +1,48 @@
+"a" = (/turf/template_noop,/area/template_noop)
+"b" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/fixed/alium,/area/template_noop)
+"c" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/generic,/turf/simulated/floor/fixed/alium,/area/template_noop)
+"d" = (/obj/machinery/power/aliengen,/obj/structure/cable/cyan{tag = "icon-0-2"; icon_state = "0-2"},/turf/simulated/floor/fixed/alium,/area/template_noop)
+"e" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/generic,/obj/structure/cable/cyan{tag = "icon-1-2"; icon_state = "1-2"},/turf/simulated/floor/fixed/alium,/area/template_noop)
+"f" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable/cyan,/obj/machinery/power/relay,/turf/simulated/floor/fixed/alium,/area/template_noop)
+"g" = (/turf/simulated/wall/alium,/area/template_noop)
+"h" = (/obj/effect/decal/cleanable/generic,/turf/simulated/floor/fixed/alium,/area/template_noop)
+"i" = (/turf/simulated/floor/fixed/alium,/area/template_noop)
+"j" = (/obj/effect/decal/cleanable/dirt,/obj/machinery/power/relay,/obj/structure/cable/cyan{tag = "icon-0-2"; icon_state = "0-2"},/turf/simulated/floor/fixed/alium,/area/template_noop)
+"k" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable/cyan{tag = "icon-1-2"; icon_state = "1-2"},/turf/simulated/floor/fixed/alium,/area/template_noop)
+"l" = (/obj/structure/cable/cyan{tag = "icon-1-2"; icon_state = "1-2"},/turf/simulated/floor/fixed/alium,/area/template_noop)
+"m" = (/obj/structure/cable/cyan,/turf/simulated/floor/fixed/alium,/area/template_noop)
+"n" = (/obj/effect/decal/cleanable/dirt,/obj/structure/cable/cyan{tag = "icon-0-2"; icon_state = "0-2"},/obj/machinery/power/relay,/turf/simulated/floor/fixed/alium,/area/template_noop)
+"o" = (/obj/machinery/power/aliengen,/obj/structure/cable/cyan,/turf/simulated/floor/fixed/alium,/area/template_noop)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaabaa
+aaaaaaaaaaaaaaaaaaaaaaaaaabbba
+aaaaaaaaaaaaaaaaaaaaaaaaacbdbb
+aaaaaaaaaaaaaaaaaaaaaaaaaabeba
+aaaaaaaaaaaaaaaaaaaaaaaaaaafaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaggggbggggaaaaaaaaaaaaa
+aaaaaaaggbhiiiiiggaaaaaaaaaaaa
+aaaaaaggbbgggggiiggaaaaaaaaaaa
+aaaaaagiiggijbggcbgaaaaaaaaaaa
+aaaaaagiggbikcbggbgaaaaaaaaaaa
+aaaaaagigbcilbbbgbgaaaaaaaaaaa
+aaaaaagbgbiimiibgbgaaaaaaaaaaa
+aaaaaagbgiiiibiigigaaaaaaaaaaa
+aaaaaagbggbcibcggigaaaaaaaaaaa
+aaaaaagbbggbibggihgaaaaaaaaaaa
+aaaaaaggbbggiggbbggaaaaaaaaaaa
+aaaaaaaggciiiibbggaaaaaaaaaaaa
+aaaaaaaagggggggggaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aanaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abkcaaaaaaaaaaaaaaaaaaaaaaaaaa
+bbobbaaaaaaaaaaaaaaaaaaaaaaaaa
+acbbaaaaaaaaaaaaaaaaaaaaaaaaaa
+aabaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

@@ -2576,6 +2576,7 @@
 #include "maps\overmap_example\overmap_example_define.dm"
 #include "maps\random_ruins\exoplanet_ruins\exoplanet_ruins.dm"
 #include "maps\random_ruins\exoplanet_ruins\monoliths\monoliths.dm"
+#include "maps\random_ruins\exoplanet_ruins\observatory\observatory.dm"
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
 #include "maps\torch\torch.dm"
 #include "maps\torch\torch_define.dm"
