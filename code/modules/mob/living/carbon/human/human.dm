@@ -1670,18 +1670,19 @@
 
 /mob/living/carbon/human/melee_accuracy_mods()
 	. = ..()
-	if(get_shock() > 50)
-		. += 15
+	world << "[src]: Melee accuracy mod: [.]"
+	if(get_shock() > 30)
+		. -= 15*round(get_shock()/15)
 	if(shock_stage > 10)
 		. += 15
 	if(shock_stage > 30)
 		. += 15
+	world << "[src]: Melee Pain accuracy penalty: [15*round(get_shock()/15)]"
+	world << "[src]: Final Melee accuracy mod: [.]"
 
 /mob/living/carbon/human/ranged_accuracy_mods()
 	. = ..()
 	if(get_shock() > 10 && !skill_check(SKILL_WEAPONS, SKILL_ADEPT))
-		. -= 1
-	if(get_shock() > 50)
 		. -= 1
 	if(shock_stage > 10)
 		. -= 1
@@ -1693,6 +1694,11 @@
 		. += 1
 	if(skill_check(SKILL_WEAPONS, SKILL_PROF))
 		. += 2
+	world << "[src]: Ranged accuracy mod: [.]"
+	if(get_shock() > 50)
+		. -= round(get_shock()/25)
+	world << "[src]: Ranged Pain accuracy penalty: [round(get_shock()/25)]"
+	world << "[src]: Final Ranged accuracy mod: [.]"
 
 /mob/living/carbon/human/can_drown()
 	if(!internal && (!istype(wear_mask) || !wear_mask.filters_water()))
@@ -1757,6 +1763,11 @@
 
 /mob/living/carbon/human/get_footstep(var/footstep_type)
 	. = species.get_footstep(src, footstep_type) || ..()
+
+/mob/living/carbon/human/get_attack_cooldown(obj/item/I)
+	. = ..()
+	if(get_shock() > 30)
+		. += min(10, get_shock() / 6)
 
 /mob/living/carbon/human/get_sound_volume_multiplier()
 	. = ..()

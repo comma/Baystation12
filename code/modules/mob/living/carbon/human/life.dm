@@ -908,8 +908,14 @@
 	if(is_asystole())
 		shock_stage = max(shock_stage + 1, 61)
 	var/traumatic_shock = get_shock()
+	if(traumatic_shock || shock_stage)
+		world << "[src]: shock [traumatic_shock] stage [shock_stage]"
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
 		shock_stage += 1
+		if(shock_stage < 0.25 * traumatic_shock)
+			shock_stage += 3
+		if(shock_stage < 0.5 * traumatic_shock) //raise shock faster if pain is very high
+			shock_stage += 1
 	else if (!is_asystole())
 		shock_stage = min(shock_stage, 160)
 		var/recovery = 1

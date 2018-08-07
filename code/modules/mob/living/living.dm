@@ -874,3 +874,9 @@ default behaviour is:
 
 /mob/living/proc/eyecheck()
 	return FLASH_PROTECTION_NONE
+
+/mob/living/proc/get_attack_cooldown(obj/item/I)
+	if(I)
+		. = I.attack_cooldown + I.w_class
+	else
+		. = DEFAULT_ATTACK_COOLDOWN

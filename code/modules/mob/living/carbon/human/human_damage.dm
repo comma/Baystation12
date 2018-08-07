@@ -438,3 +438,8 @@ This function restores all organs.
 	if(stat == UNCONSCIOUS)
 		traumatic_shock *= 0.6
 	return max(0,traumatic_shock)
+
+/mob/living/carbon/human/proc/interrupt()
+	world << "[src] got interrupted, for [get_attack_cooldown()/10]s!"
+	setClickCooldown(get_attack_cooldown())
+	SetMoveCooldown(get_attack_cooldown())

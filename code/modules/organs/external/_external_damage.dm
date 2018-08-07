@@ -89,8 +89,9 @@ obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
 		else
 			createwound(BURN, burn)
 
+	world << "[src]: Took damage [brute] brute, [burn] burn"
 	//Initial pain spike
-	add_pain(0.6*burn + 0.4*brute)
+	add_pain(0.8*burn + 0.6*brute)
 
 	//Disturb treated burns
 	if(brute > 5)
@@ -274,8 +275,17 @@ obj/item/organ/external/take_general_damage(var/amount, var/silent = FALSE)
 		if(amount <= 0)
 			return
 	pain = max(0,min(max_damage,pain+amount))
-	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
-		owner.emote("scream")
+	if(owner)
+		if(amount > 15)
+			var/scream_prob = 20
+			if(amount > 30)
+				scream_prob = 60
+			if(prob(scream_prob))
+				owner.emote("scream")
+			if(prob(amount + 30))
+				owner.interrupt()
+				world << "OOF"
+	world << "[src]: Adding [amount] pain, current pain [get_pain()]"
 	return pain-last_pain
 
 /obj/item/organ/external/proc/stun_act(var/stun_amount, var/agony_amount)
