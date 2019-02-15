@@ -68,7 +68,6 @@
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/closet/body_bag/rescue/Destroy()
-	world << "Deleting airtank [airtank]!"
 	QDEL_NULL(airtank)
 	return ..()
 
