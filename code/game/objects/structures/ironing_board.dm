@@ -7,7 +7,7 @@
 
 	var/obj/item/clothing/cloth // the clothing on the ironing board
 	var/obj/item/weapon/ironingiron/holding // ironing iron on the board
-	var/list/move_sounds = list( // some nasty sounds to make when moving the board
+	move_sounds = list( // some nasty sounds to make when moving the board
 		'sound/effects/metalscrape1.ogg',
 		'sound/effects/metalscrape2.ogg',
 		'sound/effects/metalscrape3.ogg'
@@ -32,15 +32,6 @@
 
 	update_icon()
 	GLOB.destroyed_event.unregister(I, src, /obj/structure/bed/roller/ironingboard/proc/remove_item)
-
-// make a screeching noise to drive people mad
-/obj/structure/bed/roller/ironingboard/Move()
-	var/turf/T = get_turf(src)
-	if(isspace(T) || istype(T, /turf/simulated/floor/carpet))
-		return
-	playsound(T, pick(move_sounds), 75, 1)
-
-	. = ..()
 
 /obj/structure/bed/roller/ironingboard/examine(var/mob/user)
 	. = ..()

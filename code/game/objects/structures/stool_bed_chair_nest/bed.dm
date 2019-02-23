@@ -196,6 +196,12 @@
 	var/obj/item/weapon/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	var/list/move_sounds = list( 
+		'sound/effects/roller1.ogg',
+		'sound/effects/roller2.ogg',
+		'sound/effects/roller3.ogg',
+		'sound/effects/roller4.ogg'
+	)
 
 /obj/structure/bed/roller/on_update_icon()
 	overlays.Cut()
@@ -301,6 +307,14 @@
 		return
 	if(buckled_mob)	return
 	collapse()
+
+/obj/structure/bed/roller/Move()
+	var/turf/T = get_turf(src)
+	if(isspace(T) || istype(T, /turf/simulated/floor/carpet))
+		return
+	playsound(T, pick(move_sounds), 75)
+
+	. = ..()
 
 /obj/item/roller
 	name = "roller bed"
