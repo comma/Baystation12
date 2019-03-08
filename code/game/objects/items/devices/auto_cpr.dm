@@ -57,14 +57,17 @@
 
 	if(world.time > last_pump + 15 SECONDS)
 		last_pump = world.time
+		playsound(src, 'sound/machines/pump.ogg', 25)
 		if(!skilled_setup && prob(20))
 			var/obj/item/organ/external/E = H.get_organ(BP_CHEST)
 			E.add_pain(15)
 			to_chat(H, "<span class='danger'>Your [E] is compressed painfully!</span>")	
 			if(prob(5))
 				E.fracture()
+			playsound(src, 'sound/machines/defib_failed.ogg', 10)
 		else
 			var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
 			if(heart)
 				heart.external_pump = list(world.time, 0.6)
+			playsound(src, 'sound/machines/defib_success.ogg', 10)
 
