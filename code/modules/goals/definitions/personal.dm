@@ -19,7 +19,7 @@
 		if(cleaned >= need_cleaned)
 			on_completion()
 
-/datum/goal/clean/walk/get_summary_value()
+/datum/goal/clean/get_summary_value()
 	return " ([cleaned]/[need_cleaned]so far)"
 
 /datum/goal/money
@@ -60,3 +60,26 @@
 		announced = TRUE
 		var/datum/mind/mind = owner
 		to_chat(mind.current, SPAN_DANGER("You don't feel so good..."))
+
+/datum/goal/secure_item
+	var/atom/movable/target
+	var/area/secure_area
+	var/announced
+
+/datum/goal/secure_item/New(atom/movable/_target)
+	..()
+	if(_target)
+		target = _target
+	else if(ispath(target))
+		target = locate() in secure_area
+	if(!target)
+		return
+	secure_area = locate(secure_area)
+
+/datum/goal/secure_item/update_strings()
+	description = "Make sure that \the [target] is in \the [secure_area] by the end of round."
+	completion_message = "You have protected \the [target] successfully."
+
+/datum/goal/secure_item/check_success()
+	if (GAME_STATE >= RUNLEVEL_POSTGAME)
+		return istype(get_area(target), secure_area)
