@@ -18,7 +18,13 @@
 		im.alpha = 80
 		im.blend_mode = BLEND_ADD
 		dust_cache["[i]"] = im
-
+	for (var/d in GLOB.cardinal)
+		var/image/im = image('icons/turf/space_dust.dmi',"moving")
+		im.plane = DUST_PLANE
+		im.alpha = 80
+		im.blend_mode = BLEND_ADD
+		im.dir = d
+		dust_cache["move-[d]"] = im
 
 /turf/space/Initialize()
 	. = ..()

@@ -54,25 +54,24 @@ proc/toggle_move_stars(zlevel, direction)
 	if(!zlevel)
 		return
 
-	var/gen_dir = null
-	if(direction & (NORTH|SOUTH))
-		gen_dir += "ns"
-	else if(direction & (EAST|WEST))
-		gen_dir += "ew"
-	if(!direction)
-		gen_dir = null
-
-	if (moving_levels["[zlevel]"] != gen_dir)
-		moving_levels["[zlevel]"] = gen_dir
-
+	if (moving_levels["[zlevel]"] != direction)
 		var/list/spaceturfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
 		for(var/turf/space/T in spaceturfs)
-			if(!gen_dir)
-				T.icon_state = "white"
+			if(!direction)
+				T.overlays.Cut()
+				T.overlays += T.dust_cache["[((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25]"]
 			else
-				T.icon_state = "speedspace_[gen_dir]_[rand(1,15)]"
+				T.overlays.Cut()
+				if(prob(20))
+					var/mutable_appearance/A = new(T.dust_cache["move-[direction]"])
+					A.transform = A.transform.Translate(rand(-16,16),rand(-16,16))
+					A.alpha = rand(60,90)
+					T.overlays += A
+
 				for(var/atom/movable/AM in T)
 					if (AM.simulated && !AM.anchored)
 						AM.throw_at(get_step(T,reverse_direction(direction)), 5, 1)
 						CHECK_TICK
 			CHECK_TICK
+
+		moving_levels["[zlevel]"] = direction
