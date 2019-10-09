@@ -136,6 +136,7 @@
 		O.add_fingerprint(user)
 
 		user.put_in_hands(O)
+		return O
 
 /obj/item/stack/Topic(href, href_list)
 	..()

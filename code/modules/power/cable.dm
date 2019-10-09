@@ -471,6 +471,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	name = "multipurpose cable coil"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "coil"
+	singular_name = "length"
 	randpixel = 2
 	amount = MAXCOIL
 	max_amount = MAXCOIL
@@ -508,6 +509,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		color = param_color
 	update_icon()
 	update_wclass()
+
+/obj/item/stack/cable_coil/Initialize()
+	. = ..()
+	recipes = GLOB.cable_recipies
+
+/obj/item/stack/cable_coil/produce_recipe(datum/stack_recipe/recipe, var/quantity, mob/user)
+	var/obj/O = ..()
+	if(istype(O))
+		O.color = color
 
 ///////////////////////////////////
 // General procedures
@@ -579,24 +589,6 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		to_chat(user, "A piece of power cable.")
 	else
 		to_chat(user, "A coil of power cable. There are [get_amount()] lengths of cable in the coil.")
-
-
-/obj/item/stack/cable_coil/verb/make_restraint()
-	set name = "Make Cable Restraints"
-	set category = "Object"
-	var/mob/M = usr
-
-	if(ishuman(M) && !M.incapacitated())
-		if(!istype(usr.loc,/turf)) return
-		if(!src.use(15))
-			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
-			return
-		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
-		B.color = color
-		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
-	else
-		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
-	..()
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
